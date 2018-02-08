@@ -1,0 +1,47 @@
+﻿
+# Eclipse
+# ============================
+*.pydevproject
+*.tmp
+*.bak
+*.swp
+*~.nib
+bin/
+tmp/
+
+# 工程
+# =====================
+target/
+.settings/
+.classpath
+.project
+
+# Package Files
+# =====================
+*.jar
+*.war
+*.ear
+
+# Windows
+# =========================
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+*.pub
