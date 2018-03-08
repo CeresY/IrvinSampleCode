@@ -1,4 +1,4 @@
-package com.yz.database.utils;
+package database.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,9 +12,9 @@ import java.sql.Statement;
  * @author yangzhan-xps13
  *
  */
-public class DbOracleUtils {
-	static final String DRIVER = "oracle.jdbc.OracleDriver";
-	static final String URL = "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
+public class DbMysqlUtils {
+	static final String DRIVER = "com.mysql.jdbc.Driver";
+	static final String URL = "jdbc:mysql://127.0.0.1:3306/vbi2";
 	static final String USER = "vbi";
 	static final String PWD = "123456";
 	static Connection conn = null;
@@ -28,7 +28,6 @@ public class DbOracleUtils {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		// statement.executeQuery(sql)
 		return statement;
 	}
 	
@@ -53,10 +52,10 @@ public class DbOracleUtils {
 		}
 		try{
             Class.forName(DRIVER);
-            System.out.println("成功加载Oracle驱动！");
+            System.out.println("成功加载MySQL驱动！");
             conn = DriverManager.getConnection(URL, USER, PWD);
         }catch(ClassNotFoundException e1){
-            System.out.println("找不到Oracle驱动!");
+            System.out.println("找不到MySQL驱动!");
             e1.printStackTrace();
         } catch (SQLException e) {
 			e.printStackTrace();
