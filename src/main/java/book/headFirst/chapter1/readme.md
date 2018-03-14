@@ -1,0 +1,1 @@
+本章讲的是策略模式Strategy Pattern

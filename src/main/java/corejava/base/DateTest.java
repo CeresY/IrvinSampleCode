@@ -22,9 +22,17 @@ public class DateTest {
 	 */
 	@Test
 	public void formate13() {
-		String dateStr = "1493082046953";
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
-		String value = df.format(new Date(Long.valueOf(dateStr)));
+		long t1 = System.currentTimeMillis();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		long t2 = System.currentTimeMillis();
+		System.out.println(t1);
+		System.out.println(t2);
+		System.out.println("t2-t1=" +(t2-t1));
+		String value = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(t1);
 		System.out.println(value);
 	}
 	

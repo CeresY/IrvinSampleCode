@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+/*居中*/
+.mid {
+	position: absolute;
+	width:400px;
+	height:200px;
+	left:50%;
+	top:50%; 
+	margin-left:-200px;
+	margin-top:-100px;
+	/*border:1px solid #00F*/
+} 
