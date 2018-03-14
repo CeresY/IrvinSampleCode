@@ -27,6 +27,20 @@
 	    <scope>provided</scope>
 	</dependency>
     
+    <!-- http -->
+    <dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpclient</artifactId>
+	    <version>4.5.5</version>
+	</dependency>
+	
+	<!-- html -->
+	<dependency>
+	    <groupId>org.htmlparser</groupId>
+	    <artifactId>htmlparser</artifactId>
+	    <version>2.1</version>
+	</dependency>
+
     <!-- office -->
 	<dependency>
 	    <groupId>org.apache.poi</groupId>
@@ -75,12 +89,24 @@
 	    <artifactId>commons-beanutils</artifactId>
 	    <version>1.9.3</version>
 	</dependency>
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.7</version>
+	</dependency>
 	
 	<!-- log4j -->
 	<dependency>
 	    <groupId>log4j</groupId>
 	    <artifactId>log4j</artifactId>
 	    <version>1.2.17</version>
+	</dependency>
+	
+	<!-- 微博 -->
+	<dependency>
+	    <groupId>cn.edu.hfut.dmic.webcollector</groupId>
+	    <artifactId>WebCollector</artifactId>
+	    <version>2.71</version>
 	</dependency>
   </dependencies>
   

@@ -49,5 +49,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="button" onclick="requestMethod('login');" value="登陆"><br/>
 		</form>
   	</div>
+  	<div>
+  		<p><%=path%></p>
+  		<p><%=basePath%></p>
+  	</div>
   </body>
 </html>

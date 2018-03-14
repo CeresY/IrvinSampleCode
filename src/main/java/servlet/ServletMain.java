@@ -22,13 +22,11 @@ public class ServletMain extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		log.info("dopost ... ...");
 		req.setCharacterEncoding("UTF-8");
 		HttpSession session = req.getSession();
 		String username = req.getParameter("username");
 		String pwd = req.getParameter("pwd");
-		if((username == null || "".equals(username)) 
-				|| (pwd == null || "".equals(pwd))) {
+		if((username == null || "".equals(username)) || (pwd == null || "".equals(pwd))) {
 			//throw new IllegalArgumentException();
 		}
 		log.info(username + ": " + pwd);
@@ -44,7 +42,6 @@ public class ServletMain extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		log.info("doget ... ...");
 		HttpSession session = req.getSession();
 		String username = req.getParameter("username");
 		String pwd = req.getParameter("pwd");
