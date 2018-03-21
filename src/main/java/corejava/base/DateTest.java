@@ -1,5 +1,6 @@
 package corejava.base;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -164,7 +165,7 @@ public class DateTest {
 			return;
 		}
 		
-		switch (1) {
+		switch (3) {
 		case 0:
 			// 年，加减
 			System.out.println("------------年，加减------------");
@@ -300,6 +301,17 @@ public class DateTest {
 		return lastday.getTime();
 	}
 	
+	@Test
+	public void test2() {
+		Date d;
+		try {
+			d = new SimpleDateFormat("yyyy-MM-dd").parse("2018-03-25");
+			System.out.println(getFirstDayOfWeek(d));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * 获取当前日期，本周最后一天，最后一秒
 	 * @param now
@@ -310,7 +322,7 @@ public class DateTest {
 		gc_now.setTime(now);
 		int dayOfWeekInt = gc_now.get(Calendar.DAY_OF_WEEK);
 		GregorianCalendar lastday = null;
-		if(dayOfWeekInt == 1) {
+		if(dayOfWeekInt == 1) { // 周日是第一天
 			int year = gc_now.get(Calendar.YEAR);
 			int monthInt = gc_now.get(Calendar.MONTH);
 			int dayInt = gc_now.get(Calendar.DAY_OF_MONTH);
@@ -321,6 +333,42 @@ public class DateTest {
 			int monthInt = gc_now.get(Calendar.MONTH);
 			int dayInt = gc_now.get(Calendar.DAY_OF_MONTH);
 			lastday = new GregorianCalendar(year, monthInt, dayInt, 23, 59, 59);
+		}
+		return lastday.getTime();
+	}
+	
+	/**
+	 * 获取当前日期，本周最第一天，第一秒
+	 * @param now
+	 * @return
+	 */
+	public Date getFirstDayOfWeek(Date now) {
+		GregorianCalendar gc_now = new GregorianCalendar();
+		gc_now.setTime(now);
+		int dayOfWeekInt = gc_now.get(Calendar.DAY_OF_WEEK);
+		GregorianCalendar lastday = null;
+		if(dayOfWeekInt == 2) { // 周一是第2天
+			int year = gc_now.get(Calendar.YEAR);
+			int monthInt = gc_now.get(Calendar.MONTH);
+			int dayInt = gc_now.get(Calendar.DAY_OF_MONTH);
+			lastday = new GregorianCalendar(year, monthInt, dayInt, 0, 0, 0);
+		} else {
+			int days = 0;
+			switch (dayOfWeekInt) {
+				case 1: days = -6; break;
+				case 3: days = -1; break;
+				case 4: days = -2; break;
+				case 5: days = -3; break;
+				case 6: days = -4; break;
+				case 7: days = -5; break;
+				default:
+					break;
+			}
+			gc_now.add(Calendar.DAY_OF_YEAR, days);
+			int year = gc_now.get(Calendar.YEAR);
+			int monthInt = gc_now.get(Calendar.MONTH);
+			int dayInt = gc_now.get(Calendar.DAY_OF_MONTH);
+			lastday = new GregorianCalendar(year, monthInt, dayInt, 0, 0, 0);
 		}
 		return lastday.getTime();
 	}
