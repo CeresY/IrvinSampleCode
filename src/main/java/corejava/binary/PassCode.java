@@ -3,7 +3,7 @@ package corejava.binary;
 import org.junit.Test;
 
 /**
- * ºº×Ö¾ùÒÔ2¸ö×Ö½Ú
+ * æ±‰å­—å‡ä»¥2ä¸ªå­—èŠ‚
  * @author st-yz2011
  *
  */
@@ -30,33 +30,33 @@ public class PassCode {
 	}
 	
 	/**
-	 * ×Ö½ÚÊı×é×ª»»³É16½øÖÆ
+	 * å­—èŠ‚æ•°ç»„è½¬æ¢æˆ16è¿›åˆ¶
 	 * @param b
 	 */
 	public static void byteToHex(byte[] b) {
 		int pos = 0;
 		String s = "";
 		for(int i=0; i<b.length; i++) {
-			pos = (b[i]&0xF0)>>4;//¸ßÎ»
+			pos = (b[i]&0xF0)>>4;//é«˜ä½
 			s += Hex[pos];
-			pos = (b[i]&0x0F);//µÍÎ»
+			pos = (b[i]&0x0F);//ä½ä½
 			s += Hex[pos]+" ";
 		}
-		System.out.println("16½øÖÆ\n"+s);
+		System.out.println("16è¿›åˆ¶\n"+s);
 	}
 	
 	/**
-	 * ×Ö½ÚÊı×é×ª»»³É2½øÖÆ
+	 * å­—èŠ‚æ•°ç»„è½¬æ¢æˆ2è¿›åˆ¶
 	 * @param bs
 	 */
 	public static void toBaniry2(byte[] bs) {
 		int pos = 0;
-		System.out.print("2½øÖÆ£º\n");
+		System.out.print("2è¿›åˆ¶ï¼š\n");
 		for(byte b : bs) {
-			//¸ß4
+			//é«˜4
 			pos = (b&0xF0)>>4;
 			String high = b2[pos];
-			//µÍ4
+			//ä½4
 			pos = (b&0x0f);
 			String low = b2[pos];
 			System.out.print(high+low+" ");
