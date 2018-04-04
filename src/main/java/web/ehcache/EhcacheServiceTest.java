@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
   * 2018年3月29日
   */
 
-public class EhcacheServiceTest extends SpringTestCase{
+public class EhcacheServiceTest extends EhcacheTestCase{
 
 	@Autowired
 	private EhcacheService ehcacheService;

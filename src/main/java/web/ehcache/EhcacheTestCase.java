@@ -9,8 +9,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
   * @author yangzhan
   * 2018年3月29日
   */
-@ContextConfiguration(locations = {"classpath:spring/spring-*.xml"})
+@ContextConfiguration(locations = {"classpath:cache/spring-base.xml", "classpath:cache/spring-ehcache.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class SpringTestCase extends AbstractJUnit4SpringContextTests {
+public class EhcacheTestCase extends AbstractJUnit4SpringContextTests {
 	
 }
