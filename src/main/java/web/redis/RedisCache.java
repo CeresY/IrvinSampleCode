@@ -86,8 +86,7 @@ public class RedisCache implements Cache {
         final long liveTime = 86400;
 
         redisTemplate.execute(new RedisCallback<Long>() {
-            public Long doInRedis(RedisConnection connection)
-                    throws DataAccessException {
+            public Long doInRedis(RedisConnection connection) throws DataAccessException {
                 byte[] keyb = keyf.getBytes();
                 byte[] valueb = toByteArray(valuef);
                 connection.set(keyb, valueb);

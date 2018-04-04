@@ -8,5 +8,11 @@ import corejava.model.Account;
   */
 public interface IRedisService {
 	public Account getAccountByName(String userName);
+	
+	/**
+	 * 更新数据
+	 * @param account
+	 */
+	public void updateAccount1(Account account);
 }
 

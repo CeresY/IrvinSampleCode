@@ -1,6 +1,7 @@
 package web.redis;
 
 import org.apache.log4j.Logger;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -15,17 +16,27 @@ public class RedisServiceImpl implements IRedisService {
 	private Logger log = Logger.getLogger(RedisServiceImpl.class);
 
 	@Override
-	@Cacheable(value="commonCache")// 使用了一个缓存名叫 accountCache
+	@Cacheable(value="commonCache", key="#userName")// 使用了一个缓存名叫 accountCache
 	public Account getAccountByName(String userName) {
 	    // 方法内部实现不考虑缓存逻辑，直接实现业务
-	    log.info("从数据库中查询Accoutn："+userName);
+	    log.info("正在查询 Account："+userName);
 	    return getFromDB(userName);
 	}
 	
 	private Account getFromDB(String acctName) {
-		log.info("查询数据库..."+acctName);
+		log.info("正在查询 db..."+acctName);
 	    Account ac = new Account("yang", "abc123");
 	    return ac;
+	}
+
+	@Override
+	@CacheEvict(value="commonCache", key="#account.getUsername()")
+	public void updateAccount1(Account account) {
+		log.info("正在更新 Account："+ account.toString());
+		this.updateDB(account);
+	}
+	private void updateDB(Account account) {
+		log.info("正在更新 db..." + account.toString());
 	}
 
 }
