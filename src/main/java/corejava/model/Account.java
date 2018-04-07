@@ -32,7 +32,7 @@ public class Account implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Account{" +
+		return "Account:{" +
                 "username=" + username +
                 ", pwd='" + pwd + '\'' +
                 '}';
