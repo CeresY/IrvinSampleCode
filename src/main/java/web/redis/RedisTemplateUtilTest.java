@@ -8,15 +8,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import corejava.model.Account;
 
-public class RedisUtilTest {
+public class RedisTemplateUtilTest {
 	
 	private static AbstractApplicationContext ctx;
-	private static RedisUtil redisUtil;
+	private static RedisTemplateUtil redisUtil;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		ctx = new ClassPathXmlApplicationContext("classpath:cache/spring-redis.xml");
-		redisUtil = (RedisUtil) ctx.getBean("redisUtil");
+		redisUtil = (RedisTemplateUtil) ctx.getBean("redisUtil");
 	}
 	
 	@AfterClass
