@@ -22,10 +22,14 @@
 	              <set>
 	                     <bean class="web.redis.RedisCache">
 	                            <property name="redisTemplate" ref="redisTemplate" />
+	                            <property name="setOps" ref="redisTemplate"/>
+	                            <property name="hashOps" ref="redisTemplate"/>
 	                            <property name="name" value="default"/>
 	                     </bean>
 	                     <bean class="web.redis.RedisCache">
 	                            <property name="redisTemplate" ref="redisTemplate" />
+	                            <property name="setOps" ref="redisTemplate"/>
+	                            <property name="hashOps" ref="redisTemplate"/>
 	                            <property name="name" value="commonCache"/>
 	                     </bean>
 	              </set>
@@ -70,7 +74,7 @@
     </bean>
 
 	<!--自定义redis工具类,在需要缓存的地方注入此类  -->
-    <bean id="redisUtil" class="web.redis.RedisUtil">
+    <bean id="redisUtil" class="web.redis.RedisTemplateUtil">
         <property name="redisTemplate" ref="redisTemplate"/>
     </bean>
 </beans>
