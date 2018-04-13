@@ -20,11 +20,7 @@ import org.springframework.util.CollectionUtils;
 public class RedisTemplateUtil {
 
 	@Autowired
-    private RedisTemplate<String, Object> redisTemplate;
-	
-    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
-		this.redisTemplate = redisTemplate;
-	}
+    private RedisTemplate<String, Object> redisTemplate; // 使用@Autowired注解时，一定要在cache/spring-base.xml文件开启注解：<context:component-scan base-package="web"/>
 
 	//=============================common============================
     /**
