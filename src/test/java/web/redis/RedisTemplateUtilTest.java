@@ -16,7 +16,7 @@ public class RedisTemplateUtilTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		ctx = new ClassPathXmlApplicationContext("classpath:cache/spring-redis.xml");
-		redisUtil = (RedisTemplateUtil) ctx.getBean("redisUtil");
+		redisUtil = (RedisTemplateUtil) ctx.getBean("redisTemplateUtil");
 	}
 	
 	@AfterClass
