@@ -11,8 +11,8 @@ import corejava.model.Account;
   * @author yangzhan
   * 2018年4月4日
   */
-public class RedisServiceTest extends RedisTestCase {
-	private Logger log = Logger.getLogger(RedisServiceTest.class);
+public class RedisServiceImplTest extends RedisTestCase {
+	private Logger log = Logger.getLogger(RedisServiceImplTest.class);
 
 	@Autowired
 	private IRedisService redisService;
