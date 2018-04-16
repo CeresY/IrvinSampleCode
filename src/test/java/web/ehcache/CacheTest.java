@@ -15,6 +15,7 @@ import net.sf.ehcache.config.CacheConfiguration;
 public class CacheTest {
 
 	public static void main(String[] args) {
+		System.out.println("haha");
 		// 1.创建缓存管理器
 		CacheManager cacheManager = CacheManager.create("./src/main/resources/ehcache.xml");
 		// 2.获取对象
@@ -76,12 +77,13 @@ public class CacheTest {
 		manager.addCache(cache);
 		
 		// 3.创建元素
-		Element e = new Element("user:1", "yang");
+		String eKey = "user:1";
+		Element e = new Element(eKey, "yang");
 		// 4.放入元素
 		cache.put(e);
 		// 5.获取缓存
 		for(int i=0; i<6; i++) {
-			Element ee = cache.get("user:1");
+			Element ee = cache.get(eKey);
 			System.out.println(ee);
 			//System.out.println(ee.getObjectValue());
 			// 测试缓存失效时间
