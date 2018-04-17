@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class EnumExp {
 	public enum FontColor {
-		BLACK((short)11), BLUE((short)22), RED((short)33);
+		BLACK((short)9999), BLUE((short)22), RED((short)33);
 		private short index;
 		private FontColor(short index){
 			this.index = index;
@@ -26,16 +26,16 @@ public class EnumExp {
 	
 	@Test
 	public void testFontColor() {
-		/*System.out.println(FontColor.BLACK);
-		System.out.println(FontColor.BLACK.name());
-		System.out.println(FontColor.BLACK.ordinal());
-		System.out.println(FontColor.BLACK.index);
-		System.out.println(FontColor.BLACK.toString());*/
-		System.out.println(DATESCOPE.DAY7);
+		System.out.println("FontColor.BLACK = " + FontColor.BLACK);
+		System.out.println("FontColor.BLACK.name() = " + FontColor.BLACK.name());
+		System.out.println("FontColor.BLACK.ordinal() = " + FontColor.BLACK.ordinal());
+		System.out.println("FontColor.BLACK.index = " + FontColor.BLACK.index);
+		System.out.println("FontColor.BLACK.toString() = " + FontColor.BLACK.toString());
+		/*System.out.println(DATESCOPE.DAY7);
 		System.out.println(DATESCOPE.DAY7);
 		System.out.println(DATESCOPE.DAY7.name());
 		System.out.println(DATESCOPE.DAY7.toString());
-		System.out.println(DATESCOPE.DAY7.ordinal());
+		System.out.println(DATESCOPE.DAY7.ordinal());*/
 	}
 	
 	public enum Color {  

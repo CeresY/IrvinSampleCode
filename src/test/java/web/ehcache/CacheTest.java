@@ -95,22 +95,3 @@ public class CacheTest {
 		}
 	}
 }
-
-
-//<!-- 长期不失效 -->
-//<cache name="neverCache"
-//   maxElementsInMemory="10000"
-//   eternal="true"
-//   timeToIdleSeconds="0"
-//   timeToLiveSeconds="0"
-//   overflowToDisk="true"
-//   memoryStoreEvictionPolicy="LRU"/>
-//   
-//<!-- 实时数据 -->
-//<cache name="ordinaryCache"
-//   maxElementsInMemory="10000"
-//   eternal="false"
-//   timeToIdleSeconds="3600"
-//   timeToLiveSeconds="3600"
-//   overflowToDisk="true"
-//   memoryStoreEvictionPolicy="LRU"/>
