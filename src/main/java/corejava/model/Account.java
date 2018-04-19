@@ -1,13 +1,21 @@
 package corejava.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Account implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private String username;
 	private String pwd;
+	private Date date;
 	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	public Account() {
 		super();
 	}
@@ -15,6 +23,13 @@ public class Account implements Serializable{
 		super();
 		this.username = username;
 		this.pwd = pwd;
+	}
+	
+	public Account(String username, String pwd, Date date) {
+		super();
+		this.username = username;
+		this.pwd = pwd;
+		this.date = date;
 	}
 	
 	public String getUsername() {
@@ -34,7 +49,7 @@ public class Account implements Serializable{
 	public String toString() {
 		return "Account:{" +
                 "username=" + username +
-                ", pwd='" + pwd + '\'' +
-                '}';
+                ", pwd=" + pwd +
+                ", date="+date+"}";
 	}
 }
