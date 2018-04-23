@@ -23,6 +23,11 @@ public class RedisServiceImplTest extends RedisTestCase {
 		log.info("第一次查询");
 		Account ac = redisService.getAccountByName(userName);
 		log.info("first: " + ac.toString());
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		log.info("第二次查询");
 		Account ac2 = redisService.getAccountByName(userName);
 		log.info("second: " + ac2.toString());
