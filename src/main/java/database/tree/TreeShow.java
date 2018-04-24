@@ -23,13 +23,18 @@ import database.utils.DbUtils.DB;
 public class TreeShow {
 	private Statement state = null;
 	
-	private static final File destination = new File("C://temp//tree.txt");
+	public String targetFolder = "H://log//irvinSampleCode//";
 	
-	private static final DB TYPE = DB.ORACLE;
+	public DB TYPE = null;
+	
+	public TreeShow(DB tYPE) {
+		super();
+		TYPE = tYPE;
+	}
+
 	/**
 	 * 从叶子节点展示到根节点
 	 */
-	@Test
 	public void showLeafToRoot() {
 		String childId = "2c904e9f5cc45ca2015cc4a778121922";
 		state = DbUtils.getStatement(TYPE);
@@ -46,19 +51,18 @@ public class TreeShow {
 	/**
 	 * 从根节点展示到叶子节点
 	 */
-	@Test
-	public void showRootToLeaf() {
+	public void showRootToLeaf(String rootId) {
 		state = DbUtils.getStatement(TYPE);
 		
 		/*String sql_manyRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.LEVEL_=0 ORDER BY T.LEVEL_ ASC, T.ORDER_ ASC ";
 		List<TreeNode> rootList = TreeUtils.setResult(state, sql_manyRoot);*/
 		
-		String singleRoot = "d117350374534819b7b786a886bef71e";
-		String sql_singleRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.ID = '"+singleRoot+"' ";
+		//String singleRoot = "d117350374534819b7b786a886bef71e";
+		String sql_singleRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.ID = '"+rootId+"' ";
 		List<TreeNode> rootList = TreeUtils.setResult(state, sql_singleRoot);
 		
 		try {
-			String filename = "C://temp//tree_"+String.valueOf(new Random(1000).nextInt())+".txt";
+			String filename = this.targetFolder + "tree_"+String.valueOf(new Random().nextInt(100))+".txt";
 			File destination_ = new File(filename);
 			BufferedWriter bw = new BufferedWriter(new FileWriter(destination_));
 			findRootToLeaf(bw, rootList);
@@ -151,6 +155,10 @@ public class TreeShow {
 		}
 		sb.append(node.getDisplayName()+" ⇨ "+node.getId()+" ⇨ "+node.getSign()+" ⇨ "+node.getParentId());
 		return sb.toString();
+	}
+
+	public void setTargetFolder(String targetFolder) {
+		this.targetFolder = targetFolder;
 	}
 	
 }

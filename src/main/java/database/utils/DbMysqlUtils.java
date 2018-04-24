@@ -13,8 +13,11 @@ import java.sql.Statement;
  *
  */
 public class DbMysqlUtils {
-	static final String DRIVER = "com.mysql.jdbc.Driver";
-	static final String URL = "jdbc:mysql://127.0.0.1:3306/vbi2";
+	static final String DRIVER = "com.mysql.cj.jdbc.Driver"; // com.mysql.cj.jdbc.Driver、com.mysql.jdbc.Driver
+	 
+	// 172.16.206.31、127.0.0.1
+	// jdbc:mysql://localhost:3306/mytest?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
+	static final String URL = "jdbc:mysql://localhost:3306/vbi2?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false";
 	static final String USER = "vbi";
 	static final String PWD = "123456";
 	static Connection conn = null;

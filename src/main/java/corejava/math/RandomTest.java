@@ -8,7 +8,8 @@ public class RandomTest {
 	@Test
 	public void test1() {
 		for(int i=0; i<30; i++) {
-			System.out.println(new Random().nextInt(10));
+			//System.out.print(new Random().nextInt(10));
+			System.out.println(new Random().nextInt(1000));
 		}
 	}
 	

@@ -1,5 +1,9 @@
 package util.str;
 
+import java.io.UnsupportedEncodingException;
+
+import org.apache.commons.lang3.StringUtils;
+
 public class StrUitl {
 	
 	public static void main(String[] args) {
@@ -14,18 +18,50 @@ public class StrUitl {
 	}
 	
 	/**
-	 * ²âÊÔÕıÔò±í´ïÊ½¹ıÂË¹¦ÄÜ
+	 * æµ‹è¯•æ­£åˆ™è¡¨è¾¾å¼è¿‡æ»¤åŠŸèƒ½
 	 */
 	public static void regex() {
-		String csm_bennam = "{}[]().-¡¶¡·£¼£¾£Ü£¯/ £û£ı£Û£İ¡¾¡¿£¨£©£®¡££­£ß¡¡d12321231";
-		String r_actnam = "{}[]().-¡¶¡·£¼£¾£Ü£¯/ £û£ı£Û£İ¡¾¡¿£¨£©£®¡££­£ß¡¡d12321231";
-		String regex = "[\\£û|\\£ı|\\£Û|\\£İ|\\¡¾|\\¡¿|\\£¨|\\£©|\\£®|\\¡£|\\£­|\\£ß|\\¡¡|\\{|\\}|\\[|\\]|\\(|\\)|\\.|\\-|\\¡¶|\\¡·|\\£¼|\\£¾|\\£Ü|\\£¯|\\/|\\ ]";
+		String csm_bennam = "{}[]().-ã€Šã€‹ï¼œï¼ï¼¼ï¼/ ï½›ï½ï¼»ï¼½ã€ã€‘ï¼ˆï¼‰ï¼ã€‚ï¼ï¼¿ã€€d12321231";
+		String r_actnam = "{}[]().-ã€Šã€‹ï¼œï¼ï¼¼ï¼/ ï½›ï½ï¼»ï¼½ã€ã€‘ï¼ˆï¼‰ï¼ã€‚ï¼ï¼¿ã€€d12321231";
+		String regex = "[\\ï½›|\\ï½|\\ï¼»|\\ï¼½|\\ã€|\\ã€‘|\\ï¼ˆ|\\ï¼‰|\\ï¼|\\ã€‚|\\ï¼|\\ï¼¿|\\ã€€|\\{|\\}|\\[|\\]|\\(|\\)|\\.|\\-|\\ã€Š|\\ã€‹|\\ï¼œ|\\ï¼|\\ï¼¼|\\ï¼|\\/|\\ ]";
 		String c = csm_bennam.replaceAll(regex, "");
 		String r = r_actnam.replaceAll(regex, "");
 		if(c.equals(r)) {
-			System.out.println("ÏàµÈ");
+			System.out.println("ç›¸ç­‰");
 		} else {
 			System.out.println("NO");
 		}
+	}
+	
+	/**
+	 * æˆªå–æ··åˆå­—ç¬¦ä¸²ï¼ˆå¦‚æœå‡ºç°æ±‰å­—ä¸ä¼šæˆªå–åŠä¸ªï¼‰
+	 * @param str å­—ç¬¦ä¸²
+	 * @param len å­—èŠ‚é•¿åº¦
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	public static String splitChar(String str, int len) throws UnsupportedEncodingException {
+		if(StringUtils.isBlank(str)) {
+			return null;
+		}
+		
+		// å¦‚æœå­—ç¬¦ä¸²é•¿åº¦å°äºæˆªå–é•¿åº¦ï¼Œç›´æ¥è¿”å›å­—ç¬¦ä¸²
+		int total = str.getBytes("UTF-8").length;
+		if(total <= len) {
+			return str;
+		}
+		
+		char[] ch = str.toCharArray();
+		int currentLen = 0;
+		StringBuffer sb = new StringBuffer();
+		for(int i=0; i<ch.length; i++) {
+			currentLen += String.valueOf(ch[i]).getBytes("UTF-8").length;
+			if(currentLen <= len) {
+				sb.append(ch[i]);
+			} else {
+				break;
+			}
+		}
+		return sb.toString();
 	}
 }

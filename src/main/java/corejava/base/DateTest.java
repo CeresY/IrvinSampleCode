@@ -399,7 +399,7 @@ public class DateTest {
 		Date d1 = sdf_time.parse("2017-12-31 23:59:59");
 		now.setTime(d1);
 		System.out.println(now.getTime());
-		System.out.println(now.get(Calendar.YEAR) +"\t"+ now.get(Calendar.MONTH) +"\t"+ now.get(Calendar.DAY_OF_MONTH));
+		System.out.println(now.get(Calendar.YEAR) +"\t"+ now.get(Calendar.MONTH) +"\t"+ now.get(Calendar.DAY_OF_MONTH)+"\t");
 		GregorianCalendar initStartDate = new GregorianCalendar(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
 		System.out.println(initStartDate.getTime());
 	}
