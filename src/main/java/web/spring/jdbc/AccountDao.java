@@ -16,7 +16,7 @@ public class AccountDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public void addAccount(Account ac) {
-		String sql = "insert into sys_account (username, pwd) values (?, ?, ?)";
-		jdbcTemplate.update(sql, ac.getUsername(), ac.getPwd(), "2018-03-01 17:59:32");
+		String sql = "insert into sys_account (username, pwd, create_date) values (?, ?, ?)";
+		jdbcTemplate.update(sql, ac.getUsername(), ac.getPwd(), ac.getDate());
 	}
 }

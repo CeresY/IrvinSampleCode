@@ -18,7 +18,8 @@ public class AccountDaoTest extends JdbcTestCase{
 	
 	@Test
 	public  void testAddAccount() {
-		Account ac = new Account("xxx001", "acb111", new Date());
+		Account ac = new Account("xxx002", "rkhs45", new Date());
 		acDao.addAccount(ac);
+		System.out.println("保存完成");
 	}
 }
