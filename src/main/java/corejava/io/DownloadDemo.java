@@ -19,8 +19,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import office.Column;
 import office.ExcelExportUtils;
+import office.TableHead;
 
 
 /** http下载示例
@@ -93,7 +93,7 @@ public class DownloadDemo {
 	 		// office文档(wookbook转换成ByteArrayInputStream流)
 	 		ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
 	 		List<String> sheetNames = new ArrayList<String>();
-	 		List<Column> fieldList = new ArrayList<Column>();
+	 		List<TableHead> fieldList = new ArrayList<TableHead>();
 	 		Map<String, List<Map<String,Object>>> data = new HashMap<String, List<Map<String,Object>>>();
 	 		XSSFWorkbook wb = ExcelExportUtils.createWorkbook(sheetNames, fieldList, data);
 	 		wb.write(byteOut);

@@ -28,6 +28,7 @@ public class MathT {
 
 	@Test
 	public void only() {
+		System.out.println(1024<<3);
 		// 理论上存在重复的可能，可以在后面再加上一个随机字符串
 	    for (int i = 0; i < 10; i++) {
 	        long time = System.nanoTime();
