@@ -1,15 +1,10 @@
 package corejava.character;
 
+import org.junit.Test;
+
 public class CharT {
 
-	public static void main(String[] args) {
-		CharT foo = new CharT();
-		foo.chooseAlphabet();
-	}
-
-	/**
-	 * �ַ���ֻ��������
-	 */
+	@Test
 	public void chooseAlphabet() {
 		String s1 = "abc56fa55f3a6df6a";
 		byte[] bt = s1.getBytes();

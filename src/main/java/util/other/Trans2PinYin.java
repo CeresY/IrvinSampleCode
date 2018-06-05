@@ -218,10 +218,15 @@ public class Trans2PinYin {
 	}
 	
 	public static void main(String[] args) {
-		String str = "乱吃";
+		String str = "打闹";
+		String s2 = "金";
 		//String strPinYin = new Trans2PinYin().convertAll(str);
-		String strPinYin = trans2PinYin(str, -1);
-		System.out.println(strPinYin);
+//		String strPinYin = trans2PinYin(str, -1);
+//		System.out.println(strPinYin);
+		Trans2PinYin foo = new Trans2PinYin();
+		System.out.println(foo.convertAll(str, 1));
+		//System.out.println(foo.convert(s2));
+		//System.out.println("getSelling=" + foo.getSelling(str));
 	}
 }
 

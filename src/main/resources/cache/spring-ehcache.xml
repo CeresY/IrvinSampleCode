@@ -7,10 +7,10 @@
   <description>ehcache缓存配置管理文件</description>
 
   <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-    <property name="cacheManager" ref="ehcache"/>
+    <property name="cacheManager" ref="ehcacheManager"/>
   </bean>
 
-  <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+  <bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
     <property name="configLocation" value="classpath:cache/ehcache.xml"/>
   </bean>
 

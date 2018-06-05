@@ -26,4 +26,11 @@ public class TimeTest {
 		System.out.println(new Date(-28800000L));
 		System.out.println(new Date(-120L));
 	}
+	
+	@Test
+	public void systemTime() {
+		for(int i=0; i<10; i++) {
+			System.out.println("TimeMillis=" + System.currentTimeMillis()+"\t" + "nanoTime=" + System.nanoTime());
+		}
+	}
 }

@@ -179,7 +179,7 @@ public class RedisTemplateUtil {
      * @param map 对应多个键值
      * @return true 成功 false 失败
      */
-    public boolean hmset(String key, Map<String,Object> map){
+    public boolean hmput(String key, Map<String,Object> map){
         try {
             redisTemplate.opsForHash().putAll(key, map);
             return true;
@@ -196,7 +196,7 @@ public class RedisTemplateUtil {
      * @param time 时间(秒)
      * @return true成功 false失败
      */
-    public boolean hmset(String key, Map<String,Object> map, long time){
+    public boolean hmput(String key, Map<String,Object> map, long time){
         try {
             redisTemplate.opsForHash().putAll(key, map);
             if(time>0){
@@ -216,7 +216,7 @@ public class RedisTemplateUtil {
      * @param value 值
      * @return true 成功 false失败
      */
-    public boolean hset(String key,String item,Object value) {
+    public boolean hput(String key,String item,Object value) {
          try {
             redisTemplate.opsForHash().put(key, item, value);
             return true;
@@ -234,7 +234,7 @@ public class RedisTemplateUtil {
      * @param time 时间(秒)  注意:如果已存在的hash表有时间,这里将会替换原有的时间
      * @return true 成功 false失败
      */
-    public boolean hset(String key,String item,Object value,long time) {
+    public boolean hput(String key,String item,Object value,long time) {
          try {
             redisTemplate.opsForHash().put(key, item, value);
             if(time>0){
@@ -469,7 +469,7 @@ public class RedisTemplateUtil {
      * @param time 时间(秒)
      * @return
      */
-    public boolean lSet(String key, List<Object> value) {
+    public boolean lSetAll(String key, List<Object> value) {
         try {
             redisTemplate.opsForList().rightPushAll(key, value);
             return true;
