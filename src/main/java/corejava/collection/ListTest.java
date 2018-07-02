@@ -96,6 +96,32 @@ public class ListTest {
 		}
 	}
 	
+	@Test
+	public void delList() {
+		List<String> list = new ArrayList<>();
+		for(int i=0; i<10; i++) {
+			list.add(i+"H");
+		}
+		
+		System.out.println("删除前");
+		for(int i=0; i<list.size(); i++) {
+			System.out.print(list.get(i) + "\t");
+		}
+		
+		System.out.println();
+		System.out.println("删除后");
+		for(int i=0; i<list.size(); i++) {
+			if(i == 2 || i == 5) {
+				list.remove(i);
+			}
+		}
+		
+		for(int i=0; i<list.size(); i++) {
+			System.out.print(list.get(i) + "\t");
+		}
+		
+	}
+	
 	public String getRandom(int upper) {
 		int i = new Random().nextInt(upper);
 		if(i<65) {

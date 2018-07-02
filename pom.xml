@@ -183,6 +183,13 @@
 	    <version>2.71</version>
 	</dependency>
 	
+	<!-- dom4j -->
+	<dependency>
+	    <groupId>org.dom4j</groupId>
+	    <artifactId>dom4j</artifactId>
+	    <version>2.1.1</version>
+	</dependency>
+	
   </dependencies>
   
   

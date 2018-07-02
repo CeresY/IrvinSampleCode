@@ -102,13 +102,13 @@ public class CreateMsgSql {
 				"validation.protocolNoOrContractNo.needOnlyOneError",
 				"com.bocnet.bii.query.PayNumberName"	
 		};
-		int j = 0;//ĞĞºÅ£¬·½±ã¶¨Î»ÎÄ¼şÄÄÒ»ĞĞÓĞÎó
+		int j = 0;//è¡Œå·ï¼Œæ–¹ä¾¿å®šä½æ–‡ä»¶å“ªä¸€è¡Œæœ‰è¯¯
 		FileWriter fw = new FileWriter(outputFileName);
 		PrintWriter pw = new PrintWriter(fw);;
 		try {
 			FileReader fis = new FileReader(file);
 			reader = new BufferedReader(fis);
-			//¶ÁÈ¡ÎÄ¼ş
+			//è¯»å–æ–‡ä»¶
 			while ((s = reader.readLine()) != null) {
 				j++;
 				boolean bl = false;
@@ -122,12 +122,12 @@ public class CreateMsgSql {
 				String sqlOut = "--" + initType;
 				if(!bl){
 					String[] dates = s.split("	");
-					//ÅĞ¶ÏÎÄ¼ş¸ñÊ½
+					//åˆ¤æ–­æ–‡ä»¶æ ¼å¼
 					if(dates.length!=2){
-						throw new RuntimeException("µÚ"+j+"ÎÄ¼şÄÚÈİ¸ñÊ½ÓĞÎó£¡");
+						throw new RuntimeException("ç¬¬"+j+"æ–‡ä»¶å†…å®¹æ ¼å¼æœ‰è¯¯ï¼");
 					}
-					String param = dates[0];//²ÎÊıÃû
-					String note = dates[1];//×¢ÊÍ
+					String param = dates[0];//å‚æ•°å
+					String note = dates[1];//æ³¨é‡Š
 					sqlOut = s1+ initType +s2 + param + s3 + note + s4 + initType +s5 + param + s6 + note + s7;
 				}
 				System.out.println(sqlOut);

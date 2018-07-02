@@ -1,10 +1,12 @@
 package corejava.binary;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.sql.ResultSet;
@@ -87,5 +89,39 @@ public class PicToBinary {
 	        	out.write(buffer, 0, len);
 	        }
 		}
+	}
+	
+	/**
+	 * 统计对象大小
+	 * @param obj
+	 * @return byte
+	 */
+	public static long countObjectSize(Object obj) {
+		if(obj == null) {
+			return 0;
+		}
+		ByteArrayOutputStream byteOut = null;
+		ObjectOutputStream out = null;
+		long size = 0L;
+		try {
+			byteOut = new ByteArrayOutputStream();
+			out = new ObjectOutputStream(byteOut);
+			out.writeObject(obj);
+			size = byteOut.size();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(out != null) {
+					out.close();
+				}
+				if(byteOut != null) {
+					byteOut.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return size;
 	}
 }

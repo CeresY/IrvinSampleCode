@@ -42,4 +42,26 @@ public class MapTest {
 			System.out.println(key + "=" + map.get(key));
 		}
 	}
+	
+	@Test
+	public void addMultiElements() {
+		Map<String,String> map = new HashMap<>();
+		map.put("1", "A");
+		map.put("2", "B");
+		map.put("3", "C");
+		map.put("4", "D");
+		Map<String,String> map2 = new HashMap<>();
+		map2.put("1", "A");
+		map2.put("2", "BB");
+		map2.put("5", "E");
+		map2.put("6", "F");
+		map.putAll(map2);
+		
+		Set<String> set = map.keySet();
+		Iterator<String> it = set.iterator();
+		while(it.hasNext()) {
+			String key = it.next();
+			System.out.println(key + "=" + map.get(key));
+		}
+	}
 }
