@@ -5,13 +5,11 @@ import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Test;
+
 public class GenericReflectTest {
 
-	public static void main(String[] args) {
-		GenericReflectTest t = new GenericReflectTest();
-		t.test2();
-	}
-	
+	@Test
 	public void test1() {
 		List<String> list = new ArrayList<>();
 		TypeVariable<?>[] type = (TypeVariable<?>[]) list.getClass().getTypeParameters();
@@ -20,6 +18,7 @@ public class GenericReflectTest {
 		}
 	}
 	
+	@Test
 	public void test2() {
 		List<String> list = new ArrayList<>();
 		Class clazz = list.getClass();
