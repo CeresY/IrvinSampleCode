@@ -43,4 +43,15 @@ public class Flow {
 			System.out.println(i);
 		}
 	}
+	
+	@Test
+	public void testWhile() {
+		int i=0;
+		while(i++>-1) {
+			System.out.println(i);
+			if(i == 5) {
+				break;
+			}
+		}
+	}
 }

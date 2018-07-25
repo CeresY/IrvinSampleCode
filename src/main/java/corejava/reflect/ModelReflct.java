@@ -15,15 +15,15 @@ public class ModelReflct {
 	}
 
 	private ModelReflct() {
-		System.out.println("Construct Ë½ÓĞ");
+		System.out.println("Construct ç§æœ‰");
 	}
 	
 	public ModelReflct(String name) {
-		System.out.println("Construct ´ø1²ÎÊı: " + name);
+		System.out.println("Construct å¸¦1å‚æ•°: " + name);
 	}
 	
 	public ModelReflct(String str, Integer num) {
-		System.out.println("Construct ´ø2²ÎÊı");
+		System.out.println("Construct å¸¦2å‚æ•°");
 	}
 	
 	public void info(){
@@ -37,7 +37,7 @@ public class ModelReflct {
 	};
 	
 	private void privacy(String str){
-		System.out.println("Ë½ÓĞ·½·¨-1: " + str);
+		System.out.println("ç§æœ‰æ–¹æ³•-1: " + str);
 	}
 	
 	class InnerTest {
@@ -47,33 +47,33 @@ public class ModelReflct {
 	public static void main(String[] args) {
 		Class<ModelReflct> clazz = ModelReflct.class;
 		
-		//È«²¿¹¹ÔìÆ÷
+		//å…¨éƒ¨æ„é€ å™¨
 		/*Constructor[] csc = clazz.getDeclaredConstructors();
-		System.out.println("È«²¿¹¹ÔìÆ÷:");
+		System.out.println("å…¨éƒ¨æ„é€ å™¨:");
 		for(Constructor c : csc) {
 			System.out.println(c);
 		}
 		System.out.println("\n");*/
 		
-		//public¹¹ÔìÆ÷:
+		//publicæ„é€ å™¨:
 		/*Constructor[] cs = clazz.getConstructors();
-		System.out.println("public¹¹ÔìÆ÷:");
+		System.out.println("publicæ„é€ å™¨:");
 		for(Constructor c : cs) {
 			System.out.println(c);
 		}
 		System.out.println("\n");*/
 		
-		//public ·½·¨
+		//public æ–¹æ³•
 		/*Method[] ms = clazz.getMethods();
-		System.out.println("public ·½·¨:");
+		System.out.println("public æ–¹æ³•:");
 		for(Method m : ms) {
 			System.out.println(m);
 		}
 		System.out.println("\n");*/
 		
-		//È«²¿×¢ÊÍ
+		//å…¨éƒ¨æ³¨é‡Š
 		/*Annotation[] as = clazz.getAnnotations();
-		System.out.println("È«²¿×¢ÊÍ:");
+		System.out.println("å…¨éƒ¨æ³¨é‡Š:");
 		for(Annotation m : as) {
 			System.out.println(m);
 		}

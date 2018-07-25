@@ -1,10 +1,10 @@
 package util.db;
 /**
- * Éú³ÉPOJOÀàºÍSQLMAPµÄ¹¤¾ßÀà
- * ²Ù×÷²½Öè£º
- * 1.´ÓÊı¾İ¿âÖĞ¿½±´Ãû³Æ¡¢ÀàĞÍ¡¢×¢ÊÍÁĞ£¬·Åµ½Ö¸¶¨Â·¾¶µÄtxtÎÄ¼şÖĞ
- * 2.ĞŞ¸Ä´ËÀàµÄ¶ÁÈ¡ÎÄ¼şÂ·¾¶£¬Ö´ĞĞmain·½·¨
- * 3.½á¹ûÔÚ¿ØÖÆÌ¨Êä³ö£¬¿½±´µ½sqlMapºÍPOJOÀàÖĞ
+ * ç”ŸæˆPOJOç±»å’ŒSQLMAPçš„å·¥å…·ç±»
+ * æ“ä½œæ­¥éª¤ï¼š
+ * 1.ä»æ•°æ®åº“ä¸­æ‹·è´åç§°ã€ç±»å‹ã€æ³¨é‡Šåˆ—ï¼Œæ”¾åˆ°æŒ‡å®šè·¯å¾„çš„txtæ–‡ä»¶ä¸­
+ * 2.ä¿®æ”¹æ­¤ç±»çš„è¯»å–æ–‡ä»¶è·¯å¾„ï¼Œæ‰§è¡Œmainæ–¹æ³•
+ * 3.ç»“æœåœ¨æ§åˆ¶å°è¾“å‡ºï¼Œæ‹·è´åˆ°sqlMapå’ŒPOJOç±»ä¸­
  * 20140617 zhangchao
  */
 import java.io.BufferedReader;
@@ -26,8 +26,8 @@ public class CreateResultMapAndPojo {
 
 	
 	public static void createResultMap(String fileName)throws IOException{
-		System.out.println("**********Éú³ÉsqlMap¿ªÊ¼**********");
-		//¹Ì¶¨¸ñÊ½
+		System.out.println("**********ç”ŸæˆsqlMapå¼€å§‹**********");
+		//å›ºå®šæ ¼å¼
 		String s1 = "<result property='";
 		String s2 = "' column='";
 		String s3 = "' /> <!-- ";
@@ -36,23 +36,23 @@ public class CreateResultMapAndPojo {
 		File file = new File(fileName);
 		BufferedReader reader = null;
 		String s = null;
-		int j = 0;//ĞĞºÅ£¬·½±ã¶¨Î»ÎÄ¼şÄÄÒ»ĞĞÓĞÎó
+		int j = 0;//è¡Œå·ï¼Œæ–¹ä¾¿å®šä½æ–‡ä»¶å“ªä¸€è¡Œæœ‰è¯¯
 		try {
 			FileReader fis = new FileReader(file);
 			reader = new BufferedReader(fis);
-			//¶ÁÈ¡ÎÄ¼ş
+			//è¯»å–æ–‡ä»¶
 			while ((s = reader.readLine()) != null) {
 				j++;
 				String[] dates = s.split("	");
-				//ÅĞ¶ÏÎÄ¼ş¸ñÊ½
+				//åˆ¤æ–­æ–‡ä»¶æ ¼å¼
 				if(dates.length!=3){
-					throw new RuntimeException("µÚ"+j+"ÎÄ¼şÄÚÈİ¸ñÊ½ÓĞÎó£¡");
+					throw new RuntimeException("ç¬¬"+j+"æ–‡ä»¶å†…å®¹æ ¼å¼æœ‰è¯¯ï¼");
 				}
-				String date1 = dates[0];//²ÎÊıÃû
+				String date1 = dates[0];//å‚æ•°å
 //				String date2 = dates[1];
-				String date3 = dates[2];//×¢ÊÍ
+				String date3 = dates[2];//æ³¨é‡Š
 				StringBuffer sb = new StringBuffer();
-				//Êı¾İ¿âÖĞ²ÎÊıÃûÎª´óĞ´£¬Ğè×ª»»£¬²¢È¥µôÏÂ»®Ïß£¬ÏÂ»®ÏßºóÊ×Î»´óĞ´
+				//æ•°æ®åº“ä¸­å‚æ•°åä¸ºå¤§å†™ï¼Œéœ€è½¬æ¢ï¼Œå¹¶å»æ‰ä¸‹åˆ’çº¿ï¼Œä¸‹åˆ’çº¿åé¦–ä½å¤§å†™
 				for(int i=0;i<date1.length();i++){
 					char c1 = date1.charAt(i);
 					String s6 = String.valueOf(c1).toLowerCase();
@@ -74,34 +74,34 @@ public class CreateResultMapAndPojo {
 		}finally {
 			reader.close();
 		}
-		System.out.println("**********Éú³ÉsqlMap½áÊø**********");
+		System.out.println("**********ç”ŸæˆsqlMapç»“æŸ**********");
 		System.out.println("");
 		System.out.println("");
 	}
 	
 	public static void createPojo(String fileName)throws IOException{
-		System.out.println("**********Éú³ÉPOJOÀà¿ªÊ¼**********");
+		System.out.println("**********ç”ŸæˆPOJOç±»å¼€å§‹**********");
 		File file = new File(fileName);
 		BufferedReader reader = null;
 		String s = null;
-		int j = 0;//ĞĞºÅ£¬·½±ã¶¨Î»ÎÄ¼şÄÄÒ»ĞĞÓĞÎó
+		int j = 0;//è¡Œå·ï¼Œæ–¹ä¾¿å®šä½æ–‡ä»¶å“ªä¸€è¡Œæœ‰è¯¯
 		try {
 			FileReader fis = new FileReader(file);
 			reader = new BufferedReader(fis);
-			//¶ÁÈ¡ÎÄ¼ş
+			//è¯»å–æ–‡ä»¶
 			while ((s = reader.readLine()) != null) {
 				j++;
 				String[] dates = s.split("	");
-				//ÅĞ¶ÏÎÄ¼ş¸ñÊ½
+				//åˆ¤æ–­æ–‡ä»¶æ ¼å¼
 				if(dates.length!=3){
-					throw new RuntimeException("µÚ"+j+"ÎÄ¼şÄÚÈİ¸ñÊ½ÓĞÎó£¡");
+					throw new RuntimeException("ç¬¬"+j+"æ–‡ä»¶å†…å®¹æ ¼å¼æœ‰è¯¯ï¼");
 				}
-				String date1 = dates[0];//²ÎÊıÃû
-				String date2 = dates[1];//ÀàĞÍ
-				String date3 = dates[2];//×¢ÊÍ
+				String date1 = dates[0];//å‚æ•°å
+				String date2 = dates[1];//ç±»å‹
+				String date3 = dates[2];//æ³¨é‡Š
 				StringBuffer sb = new StringBuffer();
 				String s1 = "";
-				//Êı¾İ¿âÖĞ²ÎÊıÃûÎª´óĞ´£¬Ğè×ª»»£¬²¢È¥µôÏÂ»®Ïß£¬ÏÂ»®ÏßºóÊ×Î»´óĞ´
+				//æ•°æ®åº“ä¸­å‚æ•°åä¸ºå¤§å†™ï¼Œéœ€è½¬æ¢ï¼Œå¹¶å»æ‰ä¸‹åˆ’çº¿ï¼Œä¸‹åˆ’çº¿åé¦–ä½å¤§å†™
 				for(int i=0;i<date1.length();i++){
 					char c1 = date1.charAt(i);
 					String s6 = String.valueOf(c1).toLowerCase();
@@ -114,9 +114,9 @@ public class CreateResultMapAndPojo {
 						sb.append(s6);
 					}
 				}
-				//ÀàĞÍ×ª»»
+				//ç±»å‹è½¬æ¢
 				if("INTEGER".equals(date2)){
-					//Èç¹ûÊÇÅú´ÎºÅ»òÁ÷Ë®ºÅÔòÎªLongÀàĞÍ
+					//å¦‚æœæ˜¯æ‰¹æ¬¡å·æˆ–æµæ°´å·åˆ™ä¸ºLongç±»å‹
 					if("BAT_SEQ".equals(date1)||"TRANS_ID".equals(date1)){
 						s1 = "Long ";
 					}else{
@@ -131,7 +131,7 @@ public class CreateResultMapAndPojo {
 				}else if(date2.startsWith("TIMESTAMP")){
 					s1 = "TimeStamp ";
 				}else{
-					throw new RuntimeException("µÚ"+j+"ĞĞ²ÎÊıÀàĞÍÓĞÎó");
+					throw new RuntimeException("ç¬¬"+j+"è¡Œå‚æ•°ç±»å‹æœ‰è¯¯");
 				}
 				String s2 = "private " + s1 + sb + "; //" + date3;
 				System.out.println(s2);
@@ -141,7 +141,7 @@ public class CreateResultMapAndPojo {
 		}finally {
 			reader.close();
 		}
-		System.out.println("**********Éú³ÉPOJOÀà½áÊø**********");
+		System.out.println("**********ç”ŸæˆPOJOç±»ç»“æŸ**********");
 		System.out.println("");
 	}
 }

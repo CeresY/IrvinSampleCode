@@ -1,11 +1,7 @@
 package corejava.string;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
-
 public class StrTest {
 	
 	/**
@@ -130,6 +126,31 @@ public class StrTest {
 		System.out.println("operate-before = " + str);
 		str += sb;
 		System.out.println("str-after = " + str);
+	}
+	
+	@Test
+	public void spilt2() {
+		String datas[] = new String[15];
+		for(int i=0; i<15; i++) {
+			datas[i] = String.valueOf(i);
+		}
+		int max = 4;
+		StringBuffer sql1 = new StringBuffer("select id from SYSTEM_USER where ");
+		for(int i=0; i<datas.length; i++) {
+			if(i % max == 0) {
+				if(i == 0) {
+					sql1.append(" id in(");
+				} else {
+					sql1.append(" or id in(");
+				}
+			}
+			sql1.append("'" + datas[i]+"',");
+			if((i+1) % max == 0 || (i+1)>=datas.length) {
+				sql1 = new StringBuffer(sql1.toString().subSequence(0, sql1.length()-1));
+				sql1.append(")");
+			}
+		}
+		System.out.println(sql1.toString());
 	}
 	
 }

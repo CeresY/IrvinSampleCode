@@ -7,6 +7,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import corejava.model.Account;
+import corejava.model.Student;
+
 public class MapTest {
 	@Test
 	public void getNoExsisKey() {
@@ -62,6 +65,25 @@ public class MapTest {
 		while(it.hasNext()) {
 			String key = it.next();
 			System.out.println(key + "=" + map.get(key));
+		}
+	}
+	
+	public <T> void compare(Class<T> clazz) throws InstantiationException, IllegalAccessException {
+		if(clazz.newInstance() instanceof Student) {
+			System.out.println(true);
+		} else {
+			System.out.println(false);
+		}
+	}
+	
+	@Test
+	public void test3() {
+		try {
+			compare(Account.class);
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
 		}
 	}
 }

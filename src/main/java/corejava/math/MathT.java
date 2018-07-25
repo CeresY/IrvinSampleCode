@@ -16,8 +16,10 @@ public class MathT {
 	
 	@Test
 	public void test() {
-		int i = 5;
-		System.err.println("整除:" + i/4);
+		for(int i=0; i<13; i++) {
+			//System.err.println(i+"/4=" + i/4);
+			System.err.println(i+"%4 = " + i%4);
+		}
 	}
 	
 	@Test
