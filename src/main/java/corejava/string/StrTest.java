@@ -90,6 +90,17 @@ public class StrTest {
 		}
 	}
 	
+	@Test
+	public void trim() {
+		System.out.println("[" + " a c ".trim()+"]");
+	}
+	
+	@Test
+	public void contains() {
+		String str = "ffadmifadminnj", keyword = "admin";
+		System.out.println(str.contains(keyword));
+	}
+	
 	public void finalTest() {
 //		String s1 = "aaa";
 		String s1 = new String("aaa");
