@@ -1,7 +1,7 @@
 package thread.lock;
 
 /**
- * ÕâÊÇBusyFlagµÄÉı¼¶°æ£¬ÒòÎªBusyFlagÔÚ¼ì²âflagÊÇ·ñÎªnull£¬»¹ÊÇ»á´æÔÚ¾ºÌ¬Ìõ¼ş¡£
+ * è¿™æ˜¯BusyFlagçš„å‡çº§ç‰ˆï¼Œå› ä¸ºBusyFlagåœ¨æ£€æµ‹flagæ˜¯å¦ä¸ºnullï¼Œè¿˜æ˜¯ä¼šå­˜åœ¨ç«æ€æ¡ä»¶ã€‚
  * @author st-yz2011
  *
  */

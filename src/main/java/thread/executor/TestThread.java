@@ -12,12 +12,11 @@ public class TestThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 10; i++)
-            System.out.println("����" + ThreadId + ":" + i);
+            System.out.println("pool" + ThreadId + ":" + i);
         super.run();
     }
 
     public static void main(String[] args) {
-    	// ���̳߳��д���3���߳̿ռ�
         ExecutorService exec = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 3; i++) {
             TestThread th = new TestThread(i);
@@ -25,7 +24,6 @@ public class TestThread extends Thread {
         }
         exec.shutdown();
     	
-        //���ֲ�ͬ��ʵ�ַ�ʽ
     	/*for (int i = 0; i < 3; i++) {
             TestThread th = new TestThread(i);
             th.start();

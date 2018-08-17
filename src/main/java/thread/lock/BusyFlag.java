@@ -1,8 +1,8 @@
 package thread.lock;
 
 /**
- * @È±Ïİ ÒòÎªBusyFlagÔÚ¼ì²âflagÊÇ·ñÎªnull£¬»¹ÊÇ»á´æÔÚ¾ºÌ¬Ìõ¼ş¡£
- * @author st-yz2011 Ô­Ê¼°æ±¾1.0
+ * @ç¼ºé™· å› ä¸ºBusyFlagåœ¨æ£€æµ‹flagæ˜¯å¦ä¸ºnullï¼Œè¿˜æ˜¯ä¼šå­˜åœ¨ç«æ€æ¡ä»¶ã€‚
+ * @author st-yz2011 åŸå§‹ç‰ˆæœ¬1.0
  *
  */
 public class BusyFlag {
