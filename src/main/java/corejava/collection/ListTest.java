@@ -67,11 +67,15 @@ public class ListTest {
 		List<String> list = new ArrayList<String>();
 		for(int i=0; i<10; i++) {
 			char c = (char)(97+i);
+			System.out.println(c);
 			list.add(String.valueOf(c));
 		}
-		for(int i=0; i<list.size(); i++) {
+		/*for(int i=0; i<list.size(); i++) {
 			System.out.println(i + " " +list.get(i));
 			list.remove(list.get(i));
+		}*/
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(i + " " +list.get(i));
 		}
 	}
 	

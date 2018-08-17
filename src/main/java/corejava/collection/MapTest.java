@@ -1,6 +1,7 @@
 package corejava.collection;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -58,10 +59,15 @@ public class MapTest {
 		map2.put("2", "BB");
 		map2.put("5", "E");
 		map2.put("6", "F");
-		map.putAll(map2);
+		//map.putAll(map2);
 		
 		Set<String> set = map.keySet();
 		Iterator<String> it = set.iterator();
+		while(it.hasNext()) {
+			String key = it.next();
+			System.out.println(key + "=" + map.get(key));
+		}
+		System.out.println("-------------再遍历一次-----------");
 		while(it.hasNext()) {
 			String key = it.next();
 			System.out.println(key + "=" + map.get(key));
@@ -86,4 +92,41 @@ public class MapTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void testSetMap() {
+		Set<Map<String,String>> set = new HashSet<>();
+		
+		Map<String,String> map1 = new HashMap<>();
+		map1.put("A", "A");
+		set.add(map1);
+		
+		Map<String,String> map2 = new HashMap<>();
+		map2.put("A", "B");
+		set.add(map2);
+		
+		Map<String,String> map3 = new HashMap<>();
+		map3.put("C", "B");
+		set.add(map3);
+		
+		Map<String,String> map4 = new HashMap<>();
+		map4.put("A", "B");
+		set.add(map4);
+		
+		Iterator<Map<String,String>> it = set.iterator();
+		while(it.hasNext()) {
+			Map<String,String> map = it.next();
+			Set<String> keys = map.keySet();
+			Iterator<String> itMap = keys.iterator();
+			while(itMap.hasNext()) {
+				String key = itMap.next();
+				System.out.println(key + "=" + map.get(key));
+			}
+			System.out.println("--------------");
+		}
+	}
 }
+
+
+
+
