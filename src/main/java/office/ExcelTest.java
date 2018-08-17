@@ -46,6 +46,8 @@ public class ExcelTest {
 			fos.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		} finally {
+			wb.close();
 		}
 		
 	}

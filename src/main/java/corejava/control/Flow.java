@@ -21,16 +21,17 @@ public class Flow {
 	
 	@Test
 	public void breakArea() {
-		for(int m=0; m<LEN; m++) {
-			System.out.println("M=" + m);
-			for(int n=0; n<LEN; n++) {
-				System.out.print(n + "\t");
-				if(n == 4) {
-					break;
+		outterLoop: for(int i=0; i<5; i++) {
+			System.out.println(i);
+			for(int j=0; j<5; j++) {
+				System.out.print(j + "\t");
+				if(j == 3) {
+					break outterLoop;
 				}
 			}
-			System.out.println();
+			System.out.println("\n-----------------------\n");
 		}
+		System.out.println("~end");
 	} 
 	
 	@Test

@@ -144,6 +144,22 @@ public class DateTest {
 		System.out.println("d1.compareTo.d2=" + d1.compareTo(d2));
 	}
 	
+	@Test
+	public void gcCompareTo() throws Exception{
+		Date start = sdf_date.parse("2017-04-26");
+		
+		GregorianCalendar gc_start = new GregorianCalendar();
+		gc_start.setTime(start);
+		System.out.println("开始时间：" + gc_start.getTime());
+		
+		gc_start.add(Calendar.MONTH, 1);
+		System.out.println("更新时间：" + gc_start.getTime());
+		
+		System.out.println("update.compareTo.start=" + gc_start.getTime().compareTo(start));
+		
+		
+	}
+	
 	/**
 	 * 格利高利日历日历相加减
 	 * @throws Exception

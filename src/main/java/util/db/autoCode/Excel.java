@@ -21,7 +21,7 @@ public class Excel {
 	
 	HSSFWorkbook book;
 	
-	//param1: pojoÃû³Æ; param2: ½Ó¿ÚÃû³Æ£»param3: ÊµÏÖÀàÃû³Æ
+	//param1: pojoåç§°; param2: æ¥å£åç§°ï¼›param3: å®ç°ç±»åç§°
 	private static String[][] PojoService = {
 		{"DistributionPayDetail", "IDistributionPayDetailSvc", "DistributionPayDetailSvc"}
 		/*{"Banklist", "IBanklistSvc", "BanklistSvc"},
@@ -34,7 +34,7 @@ public class Excel {
 		{"CardMsg","ICardMsgSvc","CardMsgSvc"},*/
 	};
 	
-	//ÊÇ·ñÉú³É´úÂë(trueÉú³É,false½ûÖ¹)
+	//æ˜¯å¦ç”Ÿæˆä»£ç (trueç”Ÿæˆ,falseç¦æ­¢)
 	public enum Produce {
 		Create(true), Retrieve(true), RetrieveWithTstamp(true), Update(true),
 		UpdateByOid(true), QueryList(true), QueryListAll(true), Delete(true),
@@ -87,7 +87,7 @@ public class Excel {
 					for(int r=1; r<=rows; r++) {
 						HSSFRow row = sheet.getRow(r);
 						//short cells = row.getLastCellNum();
-						//Ö»ĞèÒªÇ°ÈıÁĞ
+						//åªéœ€è¦å‰ä¸‰åˆ—
 						HSSFCell cellName = row.getCell((short)0);
 						String nameStr = cellName.getStringCellValue().toLowerCase();
 						
@@ -99,9 +99,9 @@ public class Excel {
 						bw.write("\t" + "private String " + nameStr + "; // " + typeStr + "\t" + content + "\r\n");
 					}
 				}
-				bw.write("\t" + "//·ÖÒ³²éÑ¯ÓÎ±ê" + "\r\n");
-				bw.write("\t" + "private String startrow; //¿ªÊ¼ÓÎ±ê" + "\r\n");
-				bw.write("\t" + "private String endrow; //½áÊøÓÎ±ê" + "\r\n");
+				bw.write("\t" + "//åˆ†é¡µæŸ¥è¯¢æ¸¸æ ‡" + "\r\n");
+				bw.write("\t" + "private String startrow; //å¼€å§‹æ¸¸æ ‡" + "\r\n");
+				bw.write("\t" + "private String endrow; //ç»“æŸæ¸¸æ ‡" + "\r\n");
 				bw.write("}");
 				bw.flush();
 				bw.close();
@@ -113,7 +113,7 @@ public class Excel {
 	}
 	
 	/**
-	 * Éú³ÉsvcµÄÊµÏÖÀà
+	 * ç”Ÿæˆsvcçš„å®ç°ç±»
 	 */
 	public void autoImpl() {
 		try {
@@ -123,7 +123,7 @@ public class Excel {
 					String pojo = PojoService[i][0];
 //					BufferedWriter bw = new BufferedWriter(
 //							new FileWriter(new File(implPath + PojoService[i][2] + ".java")));
-					//Ğ¡Ğ¡µÄÀ©Õ¹ÁËBufferedWriterÀà
+					//å°å°çš„æ‰©å±•äº†BufferedWriterç±»
 					BufferedWriterComponent bw = new BufferedWriterComponent(
 							new FileWriter(new File(implPath + PojoService[i][2] + ".java")));
 					bw.write("package com.boc.ebctm.service.bank;\r\n");
@@ -182,19 +182,19 @@ public class Excel {
 	}
 	
 	/**
-	 * Éú³ÉdaoµÄ½Ó¿Ú
+	 * ç”Ÿæˆdaoçš„æ¥å£
 	 */
 	public void autoInterface() {
 		try {
 			for(int i=0; i<book.getNumberOfSheets(); i++) {
 				HSSFSheet sheet = book.getSheetAt(i);
 				if(sheet != null){
-					//pojoÊ××ÖÄ¸Ğ¡Ğ´
+					//pojoé¦–å­—æ¯å°å†™
 					String parameter = PojoService[i][0].substring(0, 1).toLowerCase() + PojoService[i][0].substring(1);
 					
 //					BufferedWriter bw = new BufferedWriter(
 //							new FileWriter(new File(facePath + PojoService[i][1] + ".java")));
-					//Ğ¡Ğ¡µÄÀ©Õ¹ÁËBufferedWriterÀà
+					//å°å°çš„æ‰©å±•äº†BufferedWriterç±»
 					BufferedWriterComponent bw = new BufferedWriterComponent(
 							new FileWriter(new File(facePath + PojoService[i][1] + ".java")));
 					
@@ -262,7 +262,7 @@ public class Excel {
 		if(!dir.exists()) {
 			dir.mkdir();
 		}
-		//XSSFWorkbook book = new XSSFWorkbook();//2007°æ
+		//XSSFWorkbook book = new XSSFWorkbook();//2007ç‰ˆ
 		try {
 			for(int i=0; i<book.getNumberOfSheets(); i++) {
 				HSSFSheet sheet = book.getSheetAt(i);
@@ -272,20 +272,20 @@ public class Excel {
 					
 //					BufferedWriter bw = new BufferedWriter(
 //							new FileWriter(new File(sqlPath + pojo + "_sql.xml")));
-					//Ğ¡Ğ¡µÄÀ©Õ¹ÁËBufferedWriterÀà
+					//å°å°çš„æ‰©å±•äº†BufferedWriterç±»
 					BufferedWriterComponent bw = new BufferedWriterComponent(
 							new FileWriter(new File(sqlPath + pojo + "_sql.xml")));
 					
-					//pojoÊ××ÖÄ¸Ğ¡Ğ´
+					//pojoé¦–å­—æ¯å°å†™
 					String parameter = pojo.substring(0, 1).toLowerCase() + pojo.substring(1);
 					
-					//ÅäÖÃÎÄ¼şÉùÃ÷Í·²¿
+					//é…ç½®æ–‡ä»¶å£°æ˜å¤´éƒ¨
 					bw.write("<?xml version=\"1.0\" encoding=\"GB2312\"?>\r\n");
 					bw.write("<!DOCTYPE sqlMap PUBLIC \"-//iBATIS.com//DTD SQL Map 2.0//EN\" \"http://www.ibatis.com/dtd/sql-map-2.dtd\">\r\n");
 					bw.write("<sqlMap namespace=\"" + pojo + "\">\r\n");
 					bw.write("\t<typeAlias alias=\"" + parameter + "\" type=\"com.boc.ebctm.service.pojo."+ pojo + "\"/>\r\n");
 					
-					//SQLÕıÎÄ
+					//SQLæ­£æ–‡
 					bw.write(SqlUtil.createSQL(sheet, sheetName, parameter) + "\r\n\r\n", Produce.Create.confirm);
 					bw.write(SqlUtil.retrieveSQL(sheet, sheetName, parameter) + "\r\n\r\n", Produce.Retrieve.confirm);
 					bw.write(SqlUtil.retrieveWithTstampSQL(sheet, sheetName, parameter) + "\r\n\r\n", Produce.RetrieveWithTstamp.confirm);
@@ -297,7 +297,7 @@ public class Excel {
 					bw.write(SqlUtil.countSQL(sheet, sheetName, parameter) + "\r\n\r\n", Produce.Count.confirm);
 					bw.write(SqlUtil.addProcessLockSQL(sheetName, pojo) + "\r\n", Produce.AddProcessLock.confirm);
 					
-					//ÅäÖÃÎÄ¼şÉùÃ÷Î²²¿
+					//é…ç½®æ–‡ä»¶å£°æ˜å°¾éƒ¨
 					bw.write("</sqlMap>");
 					bw.flush();
 					bw.close();
@@ -325,7 +325,7 @@ public class Excel {
 					for(int r=1; r<=rows; r++) {
 						HSSFRow row = sheet.getRow(r);
 						//short cells = row.getLastCellNum();
-						//Ö»ĞèÒªÇ°ÈıÁĞ
+						//åªéœ€è¦å‰ä¸‰åˆ—
 						HSSFCell cellName = row.getCell((short)0);
 						String nameStr = cellName.getStringCellValue().toLowerCase();
 						
