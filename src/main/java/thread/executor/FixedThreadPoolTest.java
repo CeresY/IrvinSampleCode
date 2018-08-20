@@ -2,10 +2,10 @@ package thread.executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class TestThread extends Thread {
+public class FixedThreadPoolTest extends Thread {
     public int ThreadId;
 
-    public TestThread(int ThreadId) {
+    public FixedThreadPoolTest(int ThreadId) {
         this.ThreadId = ThreadId;
     }
 
@@ -19,14 +19,9 @@ public class TestThread extends Thread {
     public static void main(String[] args) {
         ExecutorService exec = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 3; i++) {
-            TestThread th = new TestThread(i);
+            FixedThreadPoolTest th = new FixedThreadPoolTest(i);
             exec.execute(th);
         }
         exec.shutdown();
-    	
-    	/*for (int i = 0; i < 3; i++) {
-            TestThread th = new TestThread(i);
-            th.start();
-        }*/
     }
 }
