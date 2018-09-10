@@ -17,9 +17,10 @@ public class StrTest {
 		StringBuffer sb = new StringBuffer();
 		for(int i=0; i<ch.length; i++) {
 			currentLen += String.valueOf(ch[i]).getBytes("UTF-8").length;
-			if(currentLen <= len) {
-				sb.append(ch[i]);
+			if(currentLen > len) {
+				break;
 			}
+			sb.append(ch[i]);
 		}
 		System.out.println(sb.toString());
 	}
@@ -79,6 +80,7 @@ public class StrTest {
 	public void sub() {
 		String s = "0123456";
 		System.out.println(s.substring(0, 4));
+		System.out.println(s.substring(s.length()-3));
 	}
 	
 	@Test

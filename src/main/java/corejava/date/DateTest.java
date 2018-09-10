@@ -420,4 +420,19 @@ public class DateTest {
 		System.out.println(initStartDate.getTime());
 	}
 	
+	/**
+	 * 日期[加法]
+	 */
+	@Test
+	public void add() {
+		Date startDate = new Date();
+		System.out.println(sdf_time.format(startDate));
+		GregorianCalendar gc_now = new GregorianCalendar();
+		gc_now.setTime(startDate);
+		gc_now.add(Calendar.MINUTE, 90);
+		
+		Date newDate = gc_now.getTime();
+		System.out.println(sdf_time.format(newDate));
+	}
+	
 }

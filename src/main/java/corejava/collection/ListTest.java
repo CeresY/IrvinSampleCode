@@ -12,6 +12,22 @@ import org.junit.Test;
 
 public class ListTest {
 	
+	@Test
+	public void contain() {
+		String key = "44";
+		List<String> roleIdList = new ArrayList<String>();
+		roleIdList.add("4");
+		roleIdList.add("41");
+		roleIdList.add("42");
+		roleIdList.add("43");
+		if(roleIdList.contains(key)) {
+			System.out.println("找到了");
+		} else {
+			System.out.println("没有");
+		}
+	}
+	
+	
 	/**
 	 * 去重
 	 * @param dataModelList
