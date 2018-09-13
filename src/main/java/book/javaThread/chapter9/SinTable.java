@@ -1,7 +1,7 @@
 package book.javaThread.chapter9;
 
 /**
- * javaÏß³ÌÔÚ¶àCPUÏÂµÄ²¢ĞĞ»¯
+ * javaçº¿ç¨‹åœ¨å¤šCPUä¸‹çš„å¹¶è¡ŒåŒ–
  * @author st-yz2011
  * @since 2015-12-10
  */

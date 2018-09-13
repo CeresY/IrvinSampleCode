@@ -1,6 +1,6 @@
 package book.javaThread.chapter8;
 /**
- * ¶ÁĞ´Ëø½Úµã
+ * è¯»å†™é”èŠ‚ç‚¹
  * @author st-yz2011
  *
  */
@@ -8,15 +8,15 @@ public class RWNode {
 	static final int READER = 0;
 	static final int WRITER = 1;
 	/**
-	 * ÇëÇóÏß³Ì
+	 * è¯·æ±‚çº¿ç¨‹
 	 */
 	Thread t;
 	/**
-	 * ÇëÇó×´Ì¬
+	 * è¯·æ±‚çŠ¶æ€
 	 */
 	int state;
 	/**
-	 * ÇëÇó´ÎÊı
+	 * è¯·æ±‚æ¬¡æ•°
 	 */
 	int nAcquires;
 	

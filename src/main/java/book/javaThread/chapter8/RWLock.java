@@ -4,20 +4,20 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 /**
- * ¡°¶ÁĞ´Ëø¡±ÊµÏÖ
+ * â€œè¯»å†™é”â€å®ç°
  * @author st-yz2011
  *
  */
 public class RWLock {
 	/**
-	 * ¶ÓÁĞÄ£ĞÍ
+	 * é˜Ÿåˆ—æ¨¡å‹
 	 * top [0] [1] [] []... ...[N] [N+1] last<br>
-	 * VectorÊÇÒ»¸öÊ¸Á¿Êı×é£¬ĞÂÔªËØÊÇÔÚÎ²²¿(last)Ìí¼Ó
+	 * Vectoræ˜¯ä¸€ä¸ªçŸ¢é‡æ•°ç»„ï¼Œæ–°å…ƒç´ æ˜¯åœ¨å°¾éƒ¨(last)æ·»åŠ 
 	 */
 	private Vector waiters;
 	
 	/**
-	 * ÕÒµ½Ê×´Î³öÏÖ"¶ÁËø"µÄË÷Òı´¦
+	 * æ‰¾åˆ°é¦–æ¬¡å‡ºç°"è¯»é”"çš„ç´¢å¼•å¤„
 	 * @return
 	 */
 	private int firstWriter() {
@@ -33,7 +33,7 @@ public class RWLock {
 	}
 	
 	/**
-	 * ²éÑ¯Ïß³ÌÔÚ¶ÓÁĞµÄË÷Òı´¦
+	 * æŸ¥è¯¢çº¿ç¨‹åœ¨é˜Ÿåˆ—çš„ç´¢å¼•å¤„
 	 * @param t
 	 * @return
 	 */
@@ -64,9 +64,9 @@ public class RWLock {
 			node = (RWNode) waiters.elementAt(index);
 		}
 		/**
-		 * ¶ÓÁĞÈçÏÂ£º
-		 * top [] [] [Ğ´] ... ... [] [¶Á] last 
-		 * ËµÃ÷£º¡°¶Á¡±µÄÇëÇó±»¹ÒÆğ(ÒòÎª¡°Ğ´¡±ÇëÇóÏÈµ½)£¬ÒªÏÈÖ´ĞĞÍê¡°Ğ´¡±ÇëÇó£¬±ÜÃâ²úÉú¾ºÌ¬Ìõ¼ş
+		 * é˜Ÿåˆ—å¦‚ä¸‹ï¼š
+		 * top [] [] [å†™] ... ... [] [è¯»] last 
+		 * è¯´æ˜ï¼šâ€œè¯»â€çš„è¯·æ±‚è¢«æŒ‚èµ·(å› ä¸ºâ€œå†™â€è¯·æ±‚å…ˆåˆ°)ï¼Œè¦å…ˆæ‰§è¡Œå®Œâ€œå†™â€è¯·æ±‚ï¼Œé¿å…äº§ç”Ÿç«æ€æ¡ä»¶
 		 */
 		while(getIndex(me) > firstWriter()) {
 			try {
@@ -93,9 +93,9 @@ public class RWLock {
 			node.state = RWNode.WRITER;
 		}
 		/**
-		 * ¶ÓÁĞÈçÏÂ£º
-		 * top [] [] [Ğ´] ... ... [] last 
-		 * ËµÃ÷£º"Ğ´"ÇëÇó²»ÊÇ¶ÓÁĞtop[0]ÔªËØ¾ÍÒª±»¹ÒÆğ£¬ÒªÏÈÖ´ĞĞÖ®Ç°µÄ¡°¶Á¡±ÇëÇó¡£
+		 * é˜Ÿåˆ—å¦‚ä¸‹ï¼š
+		 * top [] [] [å†™] ... ... [] last 
+		 * è¯´æ˜ï¼š"å†™"è¯·æ±‚ä¸æ˜¯é˜Ÿåˆ—top[0]å…ƒç´ å°±è¦è¢«æŒ‚èµ·ï¼Œè¦å…ˆæ‰§è¡Œä¹‹å‰çš„â€œè¯»â€è¯·æ±‚ã€‚
 		 */
 		while(getIndex(me) != 0) {
 			try {
@@ -117,7 +117,7 @@ public class RWLock {
 		}
 		node = (RWNode)waiters.elementAt(index);
 		node.nAcquires--;
-		//ÇëÇóÖ´ĞĞÍê±Ï£¬´Ó¶ÓÁĞÉ¾³ı
+		//è¯·æ±‚æ‰§è¡Œå®Œæ¯•ï¼Œä»é˜Ÿåˆ—åˆ é™¤
 		if(node.nAcquires == 0) {
 			waiters.removeElementAt(index);
 			notifyAll();
