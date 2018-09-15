@@ -1,28 +1,28 @@
 package book.algorithm.sort;
 /**
- * Éú³ÉÒ»¸öÊı×é£¬Ìá¹©Êı×éµÄ³õÊ¼»¯¡¢¸³Öµ¡¢Õ¹Ê¾µÈ²Ù×÷
+ * ç”Ÿæˆä¸€ä¸ªæ•°ç»„ï¼Œæä¾›æ•°ç»„çš„åˆå§‹åŒ–ã€èµ‹å€¼ã€å±•ç¤ºç­‰æ“ä½œ
  * @author st-yz2011
  *
  */
 public class ArrayLib {
-	private long[] theArray;//³õÊ¼»¯Êı×é
-	private int nEle;//ÔªËØ¸öÊı
-	
+	private long[] theArray;//åˆå§‹åŒ–æ•°ç»„
+	private int nEle;//å…ƒç´ ä¸ªæ•°
+
 	public ArrayLib(int n) {
 		theArray = new long[n];
-		nEle = 0;//Ò»¸ö¿ÕÊı×é
+		nEle = 0;//ä¸€ä¸ªç©ºæ•°ç»„
 	}
-	
+
 	/**
-	 * ²åÈëÔªËØ
+	 * æ’å…¥å…ƒç´ 
 	 */
 	public void insert(long value) {
 		theArray[nEle] = value;
 		nEle++;
 	}
-	
+
 	/**
-	 * Õ¹Ê¾
+	 * å±•ç¤º
 	 */
 	public void display() {
 		for(int i=0; i<nEle; i++) {
@@ -30,37 +30,37 @@ public class ArrayLib {
 		}
 		System.out.println();
 	}
-	
+
 	public void quickSort() {
 		recQuickSort(0, nEle-1);
 	}
-	
+
 	/**
-	 * ¿ìÅÅ·½·¨:ÒÔ×îÓÒ±ßµÄ×ø±êÎªpivot£¬Ğ¡µÄ·ÅÔÚ×ó±ß£¬´óµÄ·ÅÔÚÓÒ±ß
-	 * @param left ×î×ó±ß×ø±ê
-	 * @param right ×îÓÒ±ß×ø±ê
+	 * å¿«æ’æ–¹æ³•:ä»¥æœ€å³è¾¹çš„åæ ‡ä¸ºpivotï¼Œå°çš„æ”¾åœ¨å·¦è¾¹ï¼Œå¤§çš„æ”¾åœ¨å³è¾¹
+	 * @param left æœ€å·¦è¾¹åæ ‡
+	 * @param right æœ€å³è¾¹åæ ‡
 	 */
 	private void recQuickSort(int left, int right) {
 		if(left >= right) {
 			return;
 		} else {
 			long pivot = theArray[right];
-			int lefter = left - 1;//´Ó×î×ó±ß¿ªÊ¼Ïòpivot±È½Ï
-			int righter = right; //´Ó×îÓÒ±ß¿ªÊ¼Ïòpivot±È½Ï(ÒòÎªpivotÊÇ×îÓÒµÄÖµ,ËùÒÔÓ¦¸ÃÊÇµ¹ÊıµÚ¶ş¸öÔªËØ)
+			int lefter = left - 1;//ä»æœ€å·¦è¾¹å¼€å§‹å‘pivotæ¯”è¾ƒ
+			int righter = right; //ä»æœ€å³è¾¹å¼€å§‹å‘pivotæ¯”è¾ƒ(å› ä¸ºpivotæ˜¯æœ€å³çš„å€¼,æ‰€ä»¥åº”è¯¥æ˜¯å€’æ•°ç¬¬äºŒä¸ªå…ƒç´ )
 			while(true) {
-				while(theArray[++lefter] < pivot ) {//++lefter¹é0
+				while(theArray[++lefter] < pivot ) {//++lefterå½’0
 					//
 				}
 			}
 		}
 	}
-	
+
 	/**
-	 * ½»»»Á½¸ö×ø±êµÄÖµ
+	 * äº¤æ¢ä¸¤ä¸ªåæ ‡çš„å€¼
 	 */
 	private void swap(int dex1, int dex2) {
 		long temp = theArray[dex1];
 		theArray[dex1] = theArray[dex2];
 		theArray[dex2] = temp;
-	} 
+	}
 }
