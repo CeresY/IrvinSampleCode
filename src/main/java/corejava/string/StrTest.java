@@ -12,6 +12,7 @@ public class StrTest {
 	public void splitChinese() throws UnsupportedEncodingException {
 		int len = 7;
 		String str = "a中b文c123汉字";
+		System.out.println("原字符串="+str);
 		char[] ch = str.toCharArray();
 		int currentLen = 0;
 		StringBuffer sb = new StringBuffer();
@@ -25,7 +26,7 @@ public class StrTest {
 		System.out.println(sb.toString());
 	}
 
-	@Test
+	@org.junit.jupiter.api.Test
 	public void aplist2() {
 		String str = "a中b文c123汉字";
 		char exp = 0;
