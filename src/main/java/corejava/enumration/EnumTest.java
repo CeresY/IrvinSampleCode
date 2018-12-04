@@ -26,7 +26,7 @@ public class EnumTest {
 		System.out.println("OPER.EDIT.ordinal(): " + OPER.EDIT.ordinal());
 		System.out.println("OPER.ADD.toString(): " + OPER.ADD.toString());
 		
-		// ´òÓ¡½á¹û
+		// ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½
 		/*OPER.ADD: ADD
 		OPER.ADD.param: add
 		OPER.ADD.getParam(): add
@@ -44,7 +44,7 @@ public class EnumTest {
 	}
 	
 	/*public enum Gender {
-		MALE("ÄÐ"), FEMALE("Å®");
+		MALE("ï¿½ï¿½"), FEMALE("Å®");
 		public String name;
 		
 		private Gender(String name) {
@@ -56,9 +56,9 @@ public class EnumTest {
 		}
 	}*/
 	
-	//EnumerationÒ²¿ÉÒÔÏñÆÕÍ¨ÀàÒ»ÑùÊµÏÖ½Ó¿Ú
+	//EnumerationÒ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½Ò»ï¿½ï¿½Êµï¿½Ö½Ó¿ï¿½
 	public enum GenderImpl implements GenderDesc {
-		MALE("ÄÐ"), FEMALE("Å®");
+		MALE("ï¿½ï¿½"), FEMALE("Å®");
 		public String name;
 		
 		private GenderImpl(String name) {
@@ -71,20 +71,20 @@ public class EnumTest {
 
 		@Override
 		public void info() {
-			System.out.println("³õÊ¼»¯Ê±Ñ¡ÔñÁË"+this.name);
+			System.out.println("ï¿½ï¿½Ê¼ï¿½ï¿½Ê±Ñ¡ï¿½ï¿½ï¿½ï¿½"+this.name);
 		}
 	}
 	
-	//Ã¿¸öÃ¶¾ÙÖµÈ¥ÊµÏÖ²»Ò»ÑùµÄ½Ó¿Ú·½·¨
+	//Ã¿ï¿½ï¿½Ã¶ï¿½ï¿½ÖµÈ¥Êµï¿½Ö²ï¿½Ò»ï¿½ï¿½ï¿½Ä½Ó¿Ú·ï¿½ï¿½ï¿½
 	/*public enum GenderImpl implements GenderDesc {
-		MALE("ÄÐ"){
+		MALE("ï¿½ï¿½"){
 			public void info() {
-				System.out.println("MALE-Ã¿¸öÃ¶¾ÙÖµ²»Ò»ÑùµÄÊµÏÖ£º"+this.name);
+				System.out.println("MALE-Ã¿ï¿½ï¿½Ã¶ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö£ï¿½"+this.name);
 			}
 		}, 
 		FEMALE("Å®"){
 			public void info() {
-				System.out.println("FAMALE-Ã¿¸öÃ¶¾ÙÖµ²»Ò»ÑùµÄÊµÏÖ£º"+this.name);
+				System.out.println("FAMALE-Ã¿ï¿½ï¿½Ã¶ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö£ï¿½"+this.name);
 			}
 		};
 		public String name;
@@ -98,7 +98,7 @@ public class EnumTest {
 		}
 	}*/
 	
-	//º¬ÓÐ³éÏó·½·¨µÄÃ¶¾Ù
+	//ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ó·½·ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½
 	/*public enum Gender{
 		PLUS {
 			@Override
@@ -113,7 +113,7 @@ public class EnumTest {
 			}
 		};
 		
-		//¶¨Òå³éÏó·½·¨
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó·½·ï¿½
 		public abstract double eval(double x, double y);
 	}*/
 	
@@ -121,7 +121,7 @@ public class EnumTest {
 //		System.out.println(Gender.MALE.getName());
 		
 		/*Gender g = Enum.valueOf(Gender.class, "MALE");
-		g.name = "ÄÐ";
+		g.name = "ï¿½ï¿½";
 		System.out.println(g.name);*/
 		
 //		System.out.println(Enum.valueOf(Gender.class, "MALE"));
