@@ -1,23 +1,23 @@
 package book.crazyJava.chapter6;
 
 public class DiscernVariable {
-	private String field = "Íâ²¿ÀàµÄ³ÉÔ±FIELD.";
-	private String outName = "out-nameÕâÊÇÒ»¸ö×Ö¶Î";
-	
+	private String field = "å¤–éƒ¨ç±»çš„æˆå‘˜FIELD.";
+	private String outName = "out-nameè¿™æ˜¯ä¸€ä¸ªå­—æ®µ";
+
 	private class InnerClass {
-		private String field = "ÄÚ²¿ÀàµÄ³ÉÔ±FIELD";
+		private String field = "å†…éƒ¨ç±»çš„æˆå‘˜FIELD";
 		private void info() {
-			String field = "ÄÚ²¿ÀàµÄ¾Ö²¿FIELD";
+			String field = "å†…éƒ¨ç±»çš„å±€éƒ¨FIELD";
 			System.out.println("Outer = " + DiscernVariable.this.field);
 			System.out.println("Inner.field = " + this.field);
 			System.out.println("Inner.part = " + field);
 			System.out.println("Outer-outfield = " + outName);
 		}
 	}
-	
-	
+
+
 	public void outerMethod() {
-		//System.out.println("Íâ²¿·½·¨" + new InnerClass().info());
+		//System.out.println("å¤–éƒ¨æ–¹æ³•" + new InnerClass().info());
 	}
 	/**
 	 * @param args

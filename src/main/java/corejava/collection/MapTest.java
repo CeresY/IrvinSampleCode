@@ -16,6 +16,11 @@ public class MapTest {
 	public void getNoExsisKey() {
 		Map<String, String> map = new HashMap<String, String>();
 		System.out.println(map.get("key"));
+		
+		Map<String, Integer> map2 = new HashMap<>();
+		map2.put("1", 1);
+		System.out.println(map2.get("1"));
+		System.out.println(map2.get("2"));
 	}
 	
 	@Test
@@ -59,19 +64,12 @@ public class MapTest {
 		map2.put("2", "BB");
 		map2.put("5", "E");
 		map2.put("6", "F");
-		//map.putAll(map2);
+		map.putAll(map2);
 		
-		Set<String> set = map.keySet();
-		Iterator<String> it = set.iterator();
-		while(it.hasNext()) {
-			String key = it.next();
-			System.out.println(key + "=" + map.get(key));
+		for(Map.Entry<String, String> entry : map.entrySet()) {
+			System.out.println(entry.getKey() + "=" + entry.getValue());
 		}
-		System.out.println("-------------再遍历一次-----------");
-		while(it.hasNext()) {
-			String key = it.next();
-			System.out.println(key + "=" + map.get(key));
-		}
+		
 	}
 	
 	public <T> void compare(Class<T> clazz) throws InstantiationException, IllegalAccessException {
