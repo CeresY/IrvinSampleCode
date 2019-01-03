@@ -12,6 +12,37 @@ import org.junit.Test;
 
 public class ListTest {
 	
+	/**
+	 * 找出重复内容
+	 */
+	@Test
+	public void findDuplicate() {
+		List<String> list = new ArrayList<String>();
+		for(int i=0; i<30; i++) {
+			list.add(this.getRandom(91));
+		}
+		// 去重前
+		for(int i=0; i<list.size(); i++) {
+			System.out.print(list.get(i)+", ");
+		}
+		System.out.println(list.size());
+		
+		List<String> result = new ArrayList<>();
+		
+		for(int i=0; i<list.size(); i++) {
+			String previous = list.get(i);
+			for(int j=i+1; j<list.size(); j++) {
+				String next = list.get(j);
+				if(previous.equals(next)) {
+					//System.out.println("有重复：" + next);
+					result.add(next);
+				}
+			}
+		}
+		
+		System.out.println(result.toString());
+	}
+	
 	@Test
 	public void contain() {
 		String key = "44";

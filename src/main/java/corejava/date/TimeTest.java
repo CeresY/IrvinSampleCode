@@ -7,14 +7,21 @@ import java.util.Date;
 import org.junit.Test;
 
 public class TimeTest {
+	static final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
+	static final SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
 	@Test
-	public void test1() {
+	public void longToDate() {
 		System.out.println(System.currentTimeMillis());
+		Long[] mills = {1536249600000L};
+		for(int i=0; i<mills.length; i++) {
+			Date date = new Date(mills[i]);
+			System.out.println(sdf2.format(date));
+		}
 	}
 	
 	@Test
 	public void test2() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
 		try {
 			Date date = sdf.parse("19700101 00:00:00");
 			long t = date.getTime();

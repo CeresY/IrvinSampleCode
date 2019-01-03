@@ -6,7 +6,7 @@ import org.junit.Test;
 public class EnumTest {
 	
 	public enum OPER {
-		ADD("add"), EDIT("edit"),DELETE("delete"),SAVE("save"),USE("use");
+		ADD("æ–°å¢"), EDIT("ä¿®æ”¹"),DELETE("åˆ é™¤"),SAVE("ä¿å­˜"),USE("ä½¿ç”¨");
 		private String param;
 		private OPER(String param) {
 			this.param = param;
@@ -26,10 +26,10 @@ public class EnumTest {
 		System.out.println("OPER.EDIT.ordinal(): " + OPER.EDIT.ordinal());
 		System.out.println("OPER.ADD.toString(): " + OPER.ADD.toString());
 		
-		// ´òÓ¡½á¹û
+		// æ‰“å°ç»“æœ
 		/*OPER.ADD: ADD
-		OPER.ADD.param: add
-		OPER.ADD.getParam(): add
+		OPER.ADD.param: æ–°å¢
+		OPER.ADD.getParam(): æ–°å¢
 		OPER.ADD.name(): ADD
 		OPER.ADD.ordinal(): 0
 		OPER.EDIT.ordinal(): 1
@@ -44,7 +44,7 @@ public class EnumTest {
 	}
 	
 	/*public enum Gender {
-		MALE("ÄĞ"), FEMALE("Å®");
+		MALE("ç”·"), FEMALE("å¥³");
 		public String name;
 		
 		private Gender(String name) {
@@ -56,9 +56,9 @@ public class EnumTest {
 		}
 	}*/
 	
-	//EnumerationÒ²¿ÉÒÔÏñÆÕÍ¨ÀàÒ»ÑùÊµÏÖ½Ó¿Ú
+	//Enumerationä¹Ÿå¯ä»¥åƒæ™®é€šç±»ä¸€æ ·å®ç°æ¥å£
 	public enum GenderImpl implements GenderDesc {
-		MALE("ÄĞ"), FEMALE("Å®");
+		MALE("ç”·"), FEMALE("å¥³");
 		public String name;
 		
 		private GenderImpl(String name) {
@@ -71,20 +71,20 @@ public class EnumTest {
 
 		@Override
 		public void info() {
-			System.out.println("³õÊ¼»¯Ê±Ñ¡ÔñÁË"+this.name);
+			System.out.println("åˆå§‹åŒ–æ—¶é€‰æ‹©äº†"+this.name);
 		}
 	}
 	
-	//Ã¿¸öÃ¶¾ÙÖµÈ¥ÊµÏÖ²»Ò»ÑùµÄ½Ó¿Ú·½·¨
+	//æ¯ä¸ªæšä¸¾å€¼å»å®ç°ä¸ä¸€æ ·çš„æ¥å£æ–¹æ³•
 	/*public enum GenderImpl implements GenderDesc {
-		MALE("ÄĞ"){
+		MALE("ç”·"){
 			public void info() {
-				System.out.println("MALE-Ã¿¸öÃ¶¾ÙÖµ²»Ò»ÑùµÄÊµÏÖ£º"+this.name);
+				System.out.println("MALE-æ¯ä¸ªæšä¸¾å€¼ä¸ä¸€æ ·çš„å®ç°ï¼š"+this.name);
 			}
 		}, 
-		FEMALE("Å®"){
+		FEMALE("å¥³"){
 			public void info() {
-				System.out.println("FAMALE-Ã¿¸öÃ¶¾ÙÖµ²»Ò»ÑùµÄÊµÏÖ£º"+this.name);
+				System.out.println("FAMALE-æ¯ä¸ªæšä¸¾å€¼ä¸ä¸€æ ·çš„å®ç°ï¼š"+this.name);
 			}
 		};
 		public String name;
@@ -98,7 +98,7 @@ public class EnumTest {
 		}
 	}*/
 	
-	//º¬ÓĞ³éÏó·½·¨µÄÃ¶¾Ù
+	//å«æœ‰æŠ½è±¡æ–¹æ³•çš„æšä¸¾
 	/*public enum Gender{
 		PLUS {
 			@Override
@@ -113,7 +113,7 @@ public class EnumTest {
 			}
 		};
 		
-		//¶¨Òå³éÏó·½·¨
+		//å®šä¹‰æŠ½è±¡æ–¹æ³•
 		public abstract double eval(double x, double y);
 	}*/
 	
@@ -121,7 +121,7 @@ public class EnumTest {
 //		System.out.println(Gender.MALE.getName());
 		
 		/*Gender g = Enum.valueOf(Gender.class, "MALE");
-		g.name = "ÄĞ";
+		g.name = "ç”·";
 		System.out.println(g.name);*/
 		
 //		System.out.println(Enum.valueOf(Gender.class, "MALE"));
