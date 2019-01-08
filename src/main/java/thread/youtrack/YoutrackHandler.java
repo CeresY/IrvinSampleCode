@@ -57,7 +57,6 @@ public class YoutrackHandler {
 					String response = RequestUtil.requestUserList(i);
 					if(response == null) {
 						this.stop();
-						//Thread.currentThread().interrupt();
 						break;
 					} else {
 						List<String> list = RequestUtil.getUserList(response);
@@ -93,7 +92,6 @@ public class YoutrackHandler {
 					if(!isRunning) {
 						if(deque.isEmpty()) {
 							this.stop();
-							//Thread.currentThread().interrupt();
 							break;
 						}
 					}
@@ -104,7 +102,6 @@ public class YoutrackHandler {
 							String detail = RequestUtil.getUserDetail(response);
 							System.out.println("【】"+Thread.currentThread().getName() + ": " + detail);
 						}
-						//System.out.println("【d】" + Thread.currentThread().getName() + ": " + deque.isEmpty());
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 						Thread.currentThread().interrupt();
