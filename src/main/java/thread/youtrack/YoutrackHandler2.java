@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 
 public class YoutrackHandler2 {
-	private final ExecutorService threadPool = Executors.newCachedThreadPool();
+	private final ExecutorService threadPool = Executors.newFixedThreadPool(3);
 	private List<String> list = new ArrayList<String>();		
 	
 	//请求线程
@@ -29,6 +29,7 @@ public class YoutrackHandler2 {
 			for(;start<=end; start++) {
 				list2.add(RequestUtil.getUserDetail(list.get(start)));
 			}
+			System.out.println(Thread.currentThread().getName());
 			return list2;
 		}
 		
