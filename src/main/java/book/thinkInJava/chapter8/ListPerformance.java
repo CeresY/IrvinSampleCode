@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * 决定使用何种list
+ * 鍐冲畾浣跨敤浣曠list
  * @author st-yz2011
  *
  */
 public class ListPerformance {
-	
+
 	private static final int REPS = 100;
-	
+
 	private abstract static class Tester {
 		String name;
 		int size;
@@ -22,54 +22,54 @@ public class ListPerformance {
 			this.name = name;
 			this.size = size;
 		}
-		
+
 		abstract void test(List a);
 	}
-	
+
 	private static Tester[] tests = {
-		new Tester("get", 300) {
-			@Override
-			void test(List a) {
-				for(int i=0; i<REPS; i++) {
-					for(int j=0; j<a.size(); j++) {
-						a.get(j);
+			new Tester("get", 300) {
+				@Override
+				void test(List a) {
+					for(int i=0; i<REPS; i++) {
+						for(int j=0; j<a.size(); j++) {
+							a.get(j);
+						}
+					}
+				}},
+			new Tester("iteration", 300) {
+				@Override
+				void test(List a) {
+					for(int i=0; i<REPS; i++) {
+						Iterator it = a.iterator();
+						while(it.hasNext()) {
+							it.next();
+						}
 					}
 				}
-			}},
-		new Tester("iteration", 300) {
-			@Override
-			void test(List a) {
-				for(int i=0; i<REPS; i++) {
-					Iterator it = a.iterator();
+			},
+			new Tester("insert", 1000){
+				@Override
+				void test(List a) {
+					int half = a.size()/2;
+					String s = "test";
+					ListIterator it = a.listIterator();
+					for(int i=0; i<size*10; i++) {
+						it.add(s);
+					}
+				}
+			},
+			new Tester("removo", 5000) {
+				@Override
+				void test(List a) {
+					ListIterator it = a.listIterator(3);
 					while(it.hasNext()) {
 						it.next();
+						it.remove();
 					}
 				}
 			}
-		},
-		new Tester("insert", 1000){
-			@Override
-			void test(List a) {
-				int half = a.size()/2;
-				String s = "test";
-				ListIterator it = a.listIterator();
-				for(int i=0; i<size*10; i++) {
-					it.add(s);
-				}
-			}
-		},
-		new Tester("removo", 5000) {
-			@Override
-			void test(List a) {
-				ListIterator it = a.listIterator(3);
-				while(it.hasNext()) {
-					it.next();
-					it.remove();
-				}
-			}
-		}
 	};
-	
+
 	public static void test(List a) {
 		System.out.println("Testing " + a.getClass().getName());
 		for(int i=0; i<tests.length; i++) {
@@ -81,7 +81,7 @@ public class ListPerformance {
 			System.out.println(": " + (t2 - t1));
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		test(new ArrayList());
 		test(new LinkedList());

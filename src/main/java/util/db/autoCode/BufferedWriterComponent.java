@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Writer;
 /**
- * Ğ¡Ğ¡µÄÀ©Õ¹ÁËBufferedWriterÀà
+ * å°å°çš„æ‰©å±•äº†BufferedWriterç±»
  * @author st-yz2011, 2016-3-4
  *
  */
