@@ -5,16 +5,16 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 
 public class SqlUtil {
-	
+
 	private static String _NUMBER = "NUMBER";
 	private static String _VARCHAR2 = "VARCHAR2";
 	private static String _CHAR = "CHAR";
 	private static String _DATE = "DATE";
 	private static String _TIMESTAMP = "TIMESTAMP";
 	private static String _INTEGER = "INTEGER";
-	
+
 	/**
-	 * insert ≤Â»Î
+	 * insert ÊèíÂÖ•
 	 * @param sheet
 	 * @param sheetName
 	 * @param pojo
@@ -32,14 +32,14 @@ public class SqlUtil {
 			count++;
 			HSSFRow row = sheet.getRow(i);
 			short cells = row.getLastCellNum();
-			//÷ª–Ë“™«∞¡Ω¡–
-			HSSFCell cellName = row.getCell((short)0);
+			//Âè™ÈúÄË¶ÅÂâç‰∏§Âàó
+			HSSFCell cellName = row.getCell(0);
 			String nameStr = cellName.getStringCellValue().toLowerCase();
-			HSSFCell cellType = row.getCell((short)1);
+			HSSFCell cellType = row.getCell(1);
 			String typeStr = cellType.getStringCellValue();
-			
+
 			sb.append(nameStr + ", ");
-			
+
 			if(typeStr.startsWith(_NUMBER)) {
 				text.append("#" + nameStr + ":NUMERIC#");
 			} else if(typeStr.startsWith(_VARCHAR2) ||
@@ -67,9 +67,9 @@ public class SqlUtil {
 		sb.append("\t\r\n\t)\r\n</insert>");
 		return sb.toString();
 	}
-	
+
 	/**
-	 * select ≤È—Ø
+	 * select Êü•ËØ¢
 	 * @param sheet
 	 * @param sheetName
 	 * @param pojo
@@ -86,14 +86,14 @@ public class SqlUtil {
 			count++;
 			HSSFRow row = sheet.getRow(i);
 			short cells = row.getLastCellNum();
-			//÷ª–Ë“™«∞¡Ω¡–
-			HSSFCell cellName = row.getCell((short)0);
+			//Âè™ÈúÄË¶ÅÂâç‰∏§Âàó
+			HSSFCell cellName = row.getCell(0);
 			String nameStr = cellName.getStringCellValue().toLowerCase();
-			HSSFCell cellType = row.getCell((short)1);
+			HSSFCell cellType = row.getCell(1);
 			String typeStr = cellType.getStringCellValue();
-			
+
 			sb.append(select(nameStr, typeStr));
-			
+
 			if(count%5 == 0) {
 				sb.append("\r\n\t\t");
 			}
@@ -105,9 +105,9 @@ public class SqlUtil {
 		sb.append("</select>");
 		return sb.toString();
 	}
-	
+
 	/**
-	 * select ≤È—Ø
+	 * select Êü•ËØ¢
 	 * @param sheet
 	 * @param sheetName
 	 * @param pojo
@@ -124,14 +124,14 @@ public class SqlUtil {
 			count++;
 			HSSFRow row = sheet.getRow(i);
 			short cells = row.getLastCellNum();
-			//÷ª–Ë“™«∞¡Ω¡–
-			HSSFCell cellName = row.getCell((short)0);
+			//Âè™ÈúÄË¶ÅÂâç‰∏§Âàó
+			HSSFCell cellName = row.getCell(0);
 			String nameStr = cellName.getStringCellValue().toLowerCase();
-			HSSFCell cellType = row.getCell((short)1);
+			HSSFCell cellType = row.getCell(1);
 			String typeStr = cellType.getStringCellValue();
-			
+
 			sb.append(select(nameStr, typeStr));
-			
+
 			if(count%5 == 0) {
 				sb.append("\r\n\t\t");
 			}
@@ -143,9 +143,9 @@ public class SqlUtil {
 		sb.append("</select>");
 		return sb.toString();
 	}
-	
+
 	/**
-	 * update ∏¸–¬
+	 * update Êõ¥Êñ∞
 	 * @param sheet
 	 * @param sheetName
 	 * @param pojo
@@ -162,10 +162,10 @@ public class SqlUtil {
 			count++;
 			HSSFRow row = sheet.getRow(i);
 			short cells = row.getLastCellNum();
-			//÷ª–Ë“™«∞¡Ω¡–
-			HSSFCell cellName = row.getCell((short)0);
+			//Âè™ÈúÄË¶ÅÂâç‰∏§Âàó
+			HSSFCell cellName = row.getCell(0);
 			String nameStr = cellName.getStringCellValue().toLowerCase();
-			HSSFCell cellType = row.getCell((short)1);
+			HSSFCell cellType = row.getCell(1);
 			String typeStr = cellType.getStringCellValue();
 			sb.append(isNotEmptyAnd(nameStr, typeStr, "\t\t\t", ","));
 		}
@@ -174,9 +174,9 @@ public class SqlUtil {
 		sb.append("</update>");
 		return sb.toString();
 	}
-	
+
 	/**
-	 * update by primery key ÷˜º¸∏¸–¬
+	 * update by primery key ‰∏ªÈîÆÊõ¥Êñ∞
 	 * @param sheet
 	 * @param sheetName
 	 * @param pojo
@@ -193,10 +193,10 @@ public class SqlUtil {
 			count++;
 			HSSFRow row = sheet.getRow(i);
 			short cells = row.getLastCellNum();
-			//÷ª–Ë“™«∞¡Ω¡–
-			HSSFCell cellName = row.getCell((short)0);
+			//Âè™ÈúÄË¶ÅÂâç‰∏§Âàó
+			HSSFCell cellName = row.getCell(0);
 			String nameStr = cellName.getStringCellValue().toLowerCase();
-			HSSFCell cellType = row.getCell((short)1);
+			HSSFCell cellType = row.getCell(1);
 			String typeStr = cellType.getStringCellValue();
 			sb.append(isNotEmptyAnd(nameStr, typeStr, "\t\t\t", ","));
 		}
@@ -205,9 +205,9 @@ public class SqlUtil {
 		sb.append("</update>");
 		return sb.toString();
 	}
-	
+
 	/**
-	 * select ∑÷“≥≤È—Ø
+	 * select ÂàÜÈ°µÊü•ËØ¢
 	 * @param sheet
 	 * @param sheetName
 	 * @param pojo
@@ -226,12 +226,12 @@ public class SqlUtil {
 			count++;
 			HSSFRow row = sheet.getRow(i);
 			short cells = row.getLastCellNum();
-			//÷ª–Ë“™«∞¡Ω¡–
-			HSSFCell cellName = row.getCell((short)0);
+			//Âè™ÈúÄË¶ÅÂâç‰∏§Âàó
+			HSSFCell cellName = row.getCell(0);
 			String nameStr = cellName.getStringCellValue().toLowerCase();
-			HSSFCell cellType = row.getCell((short)1);
+			HSSFCell cellType = row.getCell(1);
 			String typeStr = cellType.getStringCellValue();
-			
+
 			sb.append(select(nameStr, typeStr));
 			if(count%5 == 0) {
 				sb.append("\r\n\t\t");
@@ -252,9 +252,9 @@ public class SqlUtil {
 		sb.append("</select>");
 		return sb.toString();
 	}
-	
+
 	/**
-	 * select »´≤ø≤È—Ø
+	 * select ÂÖ®ÈÉ®Êü•ËØ¢
 	 * @param sheet
 	 * @param sheetName
 	 * @param pojo
@@ -273,18 +273,18 @@ public class SqlUtil {
 			count++;
 			HSSFRow row = sheet.getRow(i);
 			short cells = row.getLastCellNum();
-			//÷ª–Ë“™«∞¡Ω¡–
-			HSSFCell cellName = row.getCell((short)0);
+			//Âè™ÈúÄË¶ÅÂâç‰∏§Âàó
+			HSSFCell cellName = row.getCell(0);
 			String nameStr = cellName.getStringCellValue().toLowerCase();
-			HSSFCell cellType = row.getCell((short)1);
+			HSSFCell cellType = row.getCell(1);
 			String typeStr = cellType.getStringCellValue();
-			
+
 			sb.append(select(nameStr, typeStr));
-			
+
 			if(count%5 == 0) {
 				sb.append("\r\n\t\t");
 			}
-			
+
 			text.append(isNotEmptyAnd(nameStr, typeStr, "\t\t", "AND"));
 		}
 		text.append("\t</dynamic>\r\n");
@@ -296,9 +296,9 @@ public class SqlUtil {
 		sb.append("</select>");
 		return sb.toString();
 	}
-	
+
 	/**
-	 * delete …æ≥˝
+	 * delete Âà†Èô§
 	 * @param sheet
 	 * @param sheetName
 	 * @param pojo
@@ -312,9 +312,9 @@ public class SqlUtil {
 		sb.append("</delete>");
 		return sb.toString();
 	}
-	
+
 	/**
-	 * select º∆ ˝∆˜
+	 * select ËÆ°Êï∞Âô®
 	 * @param sheet
 	 * @param sheetName
 	 * @param pojo
@@ -332,12 +332,12 @@ public class SqlUtil {
 		for(int i=1; i<=rows; i++) {
 			count++;
 			HSSFRow row = sheet.getRow(i);
-			//÷ª–Ë“™«∞¡Ω¡–
-			HSSFCell cellName = row.getCell((short)0);
+			//Âè™ÈúÄË¶ÅÂâç‰∏§Âàó
+			HSSFCell cellName = row.getCell(0);
 			String nameStr = cellName.getStringCellValue().toLowerCase();
-			HSSFCell cellType = row.getCell((short)1);
+			HSSFCell cellType = row.getCell(1);
 			String typeStr = cellType.getStringCellValue();
-			
+
 			text.append(isNotEmptyAnd(nameStr, typeStr, "\t\t", "AND"));
 		}
 		sb.append(text);
@@ -345,23 +345,23 @@ public class SqlUtil {
 		sb.append("</select>");
 		return sb.toString();
 	}
-	
+
 	/**
-	 * ¿÷π€À¯
+	 * ‰πêËßÇÈîÅ
 	 * @param sheetName
 	 * @param pojo
 	 * @return
 	 */
 	public static String addProcessLockSQL(String sheetName, String pojo){
 		StringBuffer sf = new StringBuffer();
-		sf.append("\t" + "<!--÷∏¡Ó‘§¥¶¿Ì◊®”√   ±®Œƒ(‘§¥¶¿Ì°¢”¶¥)◊˜“µº”À¯-->" + "\r\n");
+		sf.append("\t" + "<!--Êåá‰ª§È¢ÑÂ§ÑÁêÜ‰∏ìÁî®   Êä•Êñá(È¢ÑÂ§ÑÁêÜ„ÄÅÂ∫îÁ≠î)‰Ωú‰∏öÂä†ÈîÅ-->" + "\r\n");
 		sf.append("\t" + "<update id=\"addProcessLock\" parameterClass=\"" +pojo+ "\">" + "\r\n");
 		sf.append("\t\t" + "update "+sheetName+" set processlock=#processlock# where processlock='00' and dealstatus=#dealstatus:VARCHAR#" + "\r\n");
 		sf.append("\t\t" + "<![CDATA[and ROWNUM <= #endrow#]]>" + "\r\n");
 		sf.append("\t" + "</update>" +"\r\n");
 		return sf.toString();
 	}
-	
+
 	private static String isNotEmptyAnd(String property, String type, String space, String prepend) {
 		StringBuffer sb = new StringBuffer();
 		sb.append(space + "<isNotEmpty prepend=\"" + prepend + "\" property=\"" + property +"\">\r\n");
@@ -375,11 +375,11 @@ public class SqlUtil {
 			sb.append(space + "\t" + property + "=TO_DATE(#" + property + "#, 'YYYY-MM-DD HH24:MI:SS')\r\n");
 		} else if(type.startsWith(_TIMESTAMP)) {
 			sb.append(space + "\t" + property + "=TO_TIMESTAMP(#" + property + "#, 'YYYY-MM-DD HH24:MI:SS.FF6')\r\n");
-		} 
+		}
 		sb.append(space + "</isNotEmpty>\r\n");
 		return sb.toString();
 	}
-	
+
 	private static String select(String property, String type) {
 		StringBuffer sb = new StringBuffer();
 		if(type.startsWith(_NUMBER)) {
@@ -393,7 +393,7 @@ public class SqlUtil {
 			sb.append("TO_CHAR(" + property + ", 'YYYY-MM-DD HH24:MI:SS') " + property + ", ");
 		} else if(type.startsWith(_TIMESTAMP)) {
 			sb.append("TO_CHAR(" + property + ", 'YYYY-MM-DD HH24:MI:SS.FF6') " + property + ", ");
-		} 
+		}
 		return sb.toString();
 	}
 }

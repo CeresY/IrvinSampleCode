@@ -1,10 +1,9 @@
 package office;
 
-import java.util.Date;
-
-import org.apache.poi.ss.usermodel.Cell;
-
 import corejava.enumration.DataTypeEnum;
+import org.apache.poi.ss.usermodel.CellType;
+
+import java.util.Date;
 
 
 /**
@@ -12,17 +11,17 @@ import corejava.enumration.DataTypeEnum;
   * 2018年4月27日
   */
 public class CellBean {
-	private Integer cellType = Cell.CELL_TYPE_BLANK; //单元格类型
+	private CellType cellType = CellType.BLANK; //单元格类型
 	private DataTypeEnum type; // 单元格数据类型
 	private String valStr; // 【单元格数据：字符】
 	private Double valDouble; // 【单元格数据：浮点】
 	private Integer valInt; // 【单元格数据：整形】
 	private Date valDate; // 【单元格数据：日期】
 	
-	public Integer getCellType() {
+	public CellType getCellType() {
 		return cellType;
 	}
-	public void setCellType(Integer cellType) {
+	public void setCellType(CellType cellType) {
 		this.cellType = cellType;
 	}
 	public DataTypeEnum getType() {

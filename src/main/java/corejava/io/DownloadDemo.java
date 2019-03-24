@@ -1,26 +1,18 @@
 package corejava.io;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.OutputStream;
+import office.ExcelExportUtils;
+import office.TableHead;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import office.ExcelExportUtils;
-import office.TableHead;
 
 
 /** http下载示例
@@ -75,7 +67,6 @@ public class DownloadDemo {
 	    /**
 	     * 下载office
 	     * @param response
-	     * @param fileName
 	     * @throws Exception
 	     */
 	     @RequestMapping(value = "/pullExcel")

@@ -1,16 +1,11 @@
 package util.db.autoCode;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+import java.io.*;
 
 public class Excel {
 	private static String excelPath = "D:\\Users\\st-yz2011\\Desktop\\temp\\temp_1.xls";
@@ -88,13 +83,13 @@ public class Excel {
 						HSSFRow row = sheet.getRow(r);
 						//short cells = row.getLastCellNum();
 						//只需要前三列
-						HSSFCell cellName = row.getCell((short)0);
+						HSSFCell cellName = row.getCell(0);
 						String nameStr = cellName.getStringCellValue().toLowerCase();
 						
-						HSSFCell cellType = row.getCell((short)1);
+						HSSFCell cellType = row.getCell(1);
 						String typeStr = cellType.getStringCellValue();
 						
-						HSSFCell cellContent = row.getCell((short)2);
+						HSSFCell cellContent = row.getCell(2);
 						String content = cellContent.getStringCellValue();
 						bw.write("\t" + "private String " + nameStr + "; // " + typeStr + "\t" + content + "\r\n");
 					}
@@ -326,13 +321,13 @@ public class Excel {
 						HSSFRow row = sheet.getRow(r);
 						//short cells = row.getLastCellNum();
 						//只需要前三列
-						HSSFCell cellName = row.getCell((short)0);
+						HSSFCell cellName = row.getCell(0);
 						String nameStr = cellName.getStringCellValue().toLowerCase();
 						
-						HSSFCell cellType = row.getCell((short)1);
+						HSSFCell cellType = row.getCell(1);
 						String typeStr = cellType.getStringCellValue();
 						
-						HSSFCell cellContent = row.getCell((short)2);
+						HSSFCell cellContent = row.getCell(2);
 						String content = cellContent.getStringCellValue();
 						//System.out.println(content);
 						bw.write("private String " + nameStr + "; //" + typeStr + "\t" + content + "\r\n");

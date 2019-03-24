@@ -10,9 +10,9 @@ public class MyInvactionHandler implements InvocationHandler {
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
-		System.out.println("ÕıÔÚÖ´ĞĞ·½·¨£º" + method);
+		System.out.println("æ­£åœ¨æ‰§è¡Œæ–¹æ³•ï¼š" + method);
 		if(args != null) {
-			System.out.println("Ö´ĞĞ²ÎÊı£º");
+			System.out.println("æ‰§è¡Œå‚æ•°ï¼š");
 			for(Object obj : args) {
 				System.out.println(obj);
 			}
@@ -28,39 +28,39 @@ public class MyInvactionHandler implements InvocationHandler {
 		MyInvactionHandler foo = new MyInvactionHandler();
 		foo.test1();
 	}
-	
+
 	/**
-	 * ¶¯Ì¬´úÀíÉú³ÉÊµÀı(Ä¬ÈÏ¹¹ÔìÆ÷)
+	 * åŠ¨æ€ä»£ç†ç”Ÿæˆå®ä¾‹(é»˜è®¤æ„é€ å™¨)
 	 */
 	public void test1() {
 		MyInvactionHandler handler = new MyInvactionHandler();
 		/*ModelReflct model = (ModelReflct)Proxy.newProxyInstance(
-				ModelReflct.class.getClassLoader(), 
-				new Class[]{ModelReflct.class}, 
+				ModelReflct.class.getClassLoader(),
+				new Class[]{ModelReflct.class},
 				handler);
-		model.info("¶¯Ì¬´úÀí", 1);*/
-		
+		model.info("åŠ¨æ€ä»£ç†", 1);*/
+
 		ModelInterface model = (ModelInterface)Proxy.newProxyInstance(
-				ModelInterface.class.getClassLoader(), 
-				new Class[]{ModelInterface.class}, 
+				ModelInterface.class.getClassLoader(),
+				new Class[]{ModelInterface.class},
 				handler);
-		model.m2("½Ó¿Ú");
+		model.m2("æ¥å£");
 	}
-	
+
 	/**
-	 * ¶¯Ì¬´úÀíÉú³ÉÊµÀı(Ö¸¶¨¹¹ÔìÆ÷)
+	 * åŠ¨æ€ä»£ç†ç”Ÿæˆå®ä¾‹(æŒ‡å®šæ„é€ å™¨)
 	 */
 	public void test2() {
 		try{
 			MyInvactionHandler handler = new MyInvactionHandler();
-			Class clazz = Proxy.getProxyClass(ModelReflct.class.getClassLoader(), 
+			Class clazz = Proxy.getProxyClass(ModelReflct.class.getClassLoader(),
 					new Class[]{ModelReflct.class});
 			Constructor cons = clazz.getConstructor(new Class[]{String.class});
 			ModelReflct model1 = (ModelReflct)cons.newInstance("zd-1");
 			model1.info();
-			/*ModelReflct model = (ModelReflct)Proxy.newProxyInstance(ModelReflct.class.getClassLoader(), 
+			/*ModelReflct model = (ModelReflct)Proxy.newProxyInstance(ModelReflct.class.getClassLoader(),
 					new Class[]{ModelReflct.class}, handler);
-			model.info("¶¯Ì¬´úÀí", 2);*/
+			model.info("åŠ¨æ€ä»£ç†", 2);*/
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

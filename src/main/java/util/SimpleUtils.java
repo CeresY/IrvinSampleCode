@@ -1,14 +1,11 @@
 package util;
 
-import java.text.DateFormat;
+import corejava.date.DateFormatterUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.apache.commons.lang3.time.DateFormatUtils;
-import org.slf4j.Logger;
-
-import corejava.date.DateFormatterUtils;
 
 /** 简单工具类 */
 public class SimpleUtils {
@@ -61,7 +58,8 @@ public class SimpleUtils {
 		if(o == null){
 			return null;
 		}
-		java.util.Date date = new Date(o);
+		SimpleDateFormat dateFormat = new SimpleDateFormat();
+		java.util.Date date = dateFormat.parse(o);
 		java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(date.getTime());
 		return sqlTimestamp;
 	}
