@@ -1,29 +1,20 @@
 package web.redis;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.UnsupportedEncodingException;
+import org.springframework.cache.Cache;
+import org.springframework.cache.support.SimpleValueWrapper;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.*;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.util.SerializationUtils;
+
+import java.io.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
-
-import org.springframework.cache.Cache;
-import org.springframework.cache.support.SimpleValueWrapper;
-import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.RedisCallback;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.SetOperations;
-import org.springframework.data.redis.core.ZSetOperations;
-import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.util.SerializationUtils;
 
 /** 与spring整合，采用注解形式来使用redis
   * @author yangzhan
@@ -104,13 +95,11 @@ public class RedisCache implements Cache {
 
 	@Override
 	public <T> T get(Object key, Class<T> type) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public <T> T get(Object key, Callable<T> valueLoader) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
@@ -196,7 +185,6 @@ public class RedisCache implements Cache {
 
 	@Override
 	public ValueWrapper putIfAbsent(Object key, Object value) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
@@ -269,7 +257,7 @@ public class RedisCache implements Cache {
     /**
      * 向列表头部添加值
      * @param key
-     * @param value
+     * @param obj
      */
     public void addListFromHeader(String key, Object obj) {
         redisTemplate.opsForList().leftPush(key, obj);
