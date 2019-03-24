@@ -1,19 +1,15 @@
 package office;
 
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.xssf.usermodel.*;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.util.CellRangeAddress;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import org.apache.poi.xssf.usermodel.XSSFColor;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * 工具类：使用POI生成EXCEL
@@ -21,36 +17,37 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @date 2017年4月25日-上午9:15:58
  */
 public class CreateExcelPoi {
-	public static Map<String, Short> COLORS = new HashMap<String, Short>(){
+	public static Map<String, HSSFColor.HSSFColorPredefined> COLORS =
+			new HashMap<String, HSSFColor.HSSFColorPredefined>(){
 		{
-			put("#333399", HSSFColor.INDIGO.index);
-			put("#993366", HSSFColor.PLUM.index);
-			put("#993300", HSSFColor.BROWN.index);
-			put("#339966", HSSFColor.SEA_GREEN.index);
-			put("#969696", HSSFColor.GREY_40_PERCENT.index);
-			put("#FF6600", HSSFColor.ORANGE.index);
-			put("#FF9900", HSSFColor.LIGHT_ORANGE.index);
-			put("#FFCC00", HSSFColor.GOLD.index);
-			put("#99CC00", HSSFColor.LIME.index);
-			put("#3366FF", HSSFColor.LIGHT_BLUE.index);
-			put("#FFCC99", HSSFColor.TAN.index);
-			put("#CC99FF", HSSFColor.LAVENDER.index);
-			put("#FF99CC", HSSFColor.ROSE.index);
-			put("#99CCFF", HSSFColor.PALE_BLUE.index);
-			put("#FFFF99", HSSFColor.LIGHT_YELLOW.index);
-			put("#FF8080", HSSFColor.CORAL.index);
+			put("#333399", HSSFColor.HSSFColorPredefined.INDIGO);
+			put("#993366", HSSFColor.HSSFColorPredefined.PLUM);
+			put("#993300", HSSFColor.HSSFColorPredefined.BROWN);
+			put("#339966", HSSFColor.HSSFColorPredefined.SEA_GREEN);
+			put("#969696", HSSFColor.HSSFColorPredefined.GREY_40_PERCENT);
+			put("#FF6600", HSSFColor.HSSFColorPredefined.ORANGE);
+			put("#FF9900", HSSFColor.HSSFColorPredefined.LIGHT_ORANGE);
+			put("#FFCC00", HSSFColor.HSSFColorPredefined.GOLD);
+			put("#99CC00", HSSFColor.HSSFColorPredefined.LIME);
+			put("#3366FF", HSSFColor.HSSFColorPredefined.LIGHT_BLUE);
+			put("#FFCC99", HSSFColor.HSSFColorPredefined.TAN);
+			put("#CC99FF", HSSFColor.HSSFColorPredefined.LAVENDER);
+			put("#FF99CC", HSSFColor.HSSFColorPredefined.ROSE);
+			put("#99CCFF", HSSFColor.HSSFColorPredefined.PALE_BLUE);
+			put("#FFFF99", HSSFColor.HSSFColorPredefined.LIGHT_YELLOW);
+			put("#FF8080", HSSFColor.HSSFColorPredefined.CORAL);
 		}
 	};
 	
 	//字体颜色
 	public enum FontColorEnum {
-		BLACK(HSSFColor.BLACK.index),
-		LIGHT_ORANGE(HSSFColor.LIGHT_ORANGE.index),
-		GOLD(HSSFColor.GOLD.index),
-		PLUM(HSSFColor.PLUM.index),
-		WHITE(HSSFColor.WHITE.index);
-		private short index;
-		private FontColorEnum(short index){
+		BLACK(HSSFColor.HSSFColorPredefined.BLACK),
+		LIGHT_ORANGE(HSSFColor.HSSFColorPredefined.LIGHT_ORANGE),
+		GOLD(HSSFColor.HSSFColorPredefined.GOLD),
+		PLUM(HSSFColor.HSSFColorPredefined.PLUM),
+		WHITE(HSSFColor.HSSFColorPredefined.WHITE);
+		private HSSFColor.HSSFColorPredefined index;
+		FontColorEnum(HSSFColor.HSSFColorPredefined index){
 			this.index = index;
 		}
 	}
@@ -102,13 +99,13 @@ public class CreateExcelPoi {
 	public static XSSFCellStyle createCellStyle(XSSFWorkbook wb, boolean isAlignCenter, boolean isBorder, boolean isWarp) {
 		XSSFCellStyle style = wb.createCellStyle();
 		if(isAlignCenter) {
-			style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+			style.setAlignment(HorizontalAlignment.CENTER);
 		}
 		if(isBorder) {
-			style.setBorderBottom(HSSFCellStyle.BORDER_THIN); // 下边框
-			style.setBorderLeft(HSSFCellStyle.BORDER_THIN);// 左边框
-			style.setBorderTop(HSSFCellStyle.BORDER_THIN);// 上边框
-			style.setBorderRight(HSSFCellStyle.BORDER_THIN);// 右边框
+			style.setBorderBottom(BorderStyle.THIN);; // 下边框
+			style.setBorderLeft(BorderStyle.THIN);// 左边框
+			style.setBorderTop(BorderStyle.THIN);// 上边框
+			style.setBorderRight(BorderStyle.THIN);// 右边框
 		}
 		// 指定当单元格内容显示不下时自动换行
 		style.setWrapText(isWarp);
@@ -125,13 +122,13 @@ public class CreateExcelPoi {
 	 */
 	public static Font createFontStyle(XSSFWorkbook wb, FontColorEnum color, short fontPoint, boolean isBold){
 		Font font = wb.createFont();
-		font.setColor(color.index);
 		font.setFontHeightInPoints(fontPoint);
-		if(isBold) {
+		font.setBold(isBold);
+		/*if(isBold) {
 			font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
 		} else {
 			font.setBoldweight(HSSFFont.BOLDWEIGHT_NORMAL);
-		}
+		}*/
 		return font;
 	}
 	
@@ -144,7 +141,7 @@ public class CreateExcelPoi {
 		java.awt.Color color = hex2rgb(colorStr);
 		XSSFColor xssfColor = new XSSFColor(color);
 		cellStyle.setFillForegroundColor(xssfColor);
-		cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+		cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		return cellStyle;
 	}
 	
@@ -154,8 +151,9 @@ public class CreateExcelPoi {
 	 * @param colorStr
 	 */
 	public static XSSFCellStyle setBackgroundColor(XSSFCellStyle cellStyle, String colorStr) {
-		cellStyle.setFillForegroundColor(COLORS.get(colorStr));
-		cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+		cellStyle.setFillForegroundColor(COLORS.get(colorStr).getIndex());
+		//cellStyle.setFillForegroundColor(COLORS.get(colorStr));
+		cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		return cellStyle;
 	}
 	
@@ -197,8 +195,9 @@ public class CreateExcelPoi {
 		Font month_font = CreateExcelPoi.createFontStyle(wb, CreateExcelPoi.FontColorEnum.BLACK, (short)13, true);//创建字体
 		month_style.setFont(month_font);
 		//背景色
-		month_style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
-		month_style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+		month_style.setFillForegroundColor(HSSFColor.HSSFColorPredefined.GREY_25_PERCENT.getIndex());
+		//month_style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
+        month_style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		return month_style;
 	}
 	

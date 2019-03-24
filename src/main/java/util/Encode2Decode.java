@@ -1,5 +1,12 @@
 package util;
 
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.text.StringEscapeUtils;
+
+import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -7,19 +14,6 @@ import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.lang3.StringEscapeUtils;
 
 /** 封装各种[对称加密]及[摘要算法]的编码解码工具类.
  * 1.Commons-Codec的 hex/base64 编码
@@ -104,7 +98,7 @@ public class Encode2Decode {
 	 * Xml 转码.
 	 */
 	public static String escapeXml(String xml) {
-		return StringEscapeUtils.escapeXml(xml);
+		return StringEscapeUtils.escapeXml10(xml);
 	}
 
 	/**

@@ -1,22 +1,15 @@
 package office;
 
+import corejava.enumration.DataTypeEnum;
+import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.xssf.usermodel.*;
+import util.SimpleUtils;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import corejava.enumration.DataTypeEnum;
-import util.SimpleUtils;
 
 /** 导出excel工具类
   * @author yangzhan
@@ -26,7 +19,7 @@ public class ExcelExportUtils {
 
 	//private static Log log = LogFactory.getLog(ExcelExportUtils.class);
 	private static Logger log = Logger.getLogger(ExcelExportUtils.class);
-	
+
 	/**
 	 * 创建excel对象
 	 * @param sheetNames
@@ -50,13 +43,13 @@ public class ExcelExportUtils {
 		XSSFCellStyle style_date = CreateExcelPoi.createCellStyle(wb, false, true, true);
 		short s = 0xe; // 0xe表示 yyyy-mm-dd格式的数据
 		style_date.setDataFormat(s);
-		
+
 		// -------------多个sheet-----------------
 		for(int i=0; i<sheetNames.size(); i++) {
 			// 创建一个sheet
 			XSSFSheet sheet = wb.createSheet();
 			wb.setSheetName(i, sheetNames.get(i));
-			
+
 			// 设置列宽
 			for(int col=0; col<fieldList.size(); col++) {
 				int width = fieldList.get(col).getWidth();
@@ -64,16 +57,16 @@ public class ExcelExportUtils {
 					sheet.setColumnWidth(col, width);
 				}
 			}
-			
+
 			// 写入表头
 			XSSFRow row_head = CreateExcelPoi.createRow(sheet, 0, row_height);
 			for(int j=0; j<fieldList.size(); j++) {
 				XSSFCell cell_head = row_head.createCell(j);
 				cell_head.setCellValue(fieldList.get(j).getName());
 				cell_head.setCellStyle(style_head);
-				cell_head.setCellType(Cell.CELL_TYPE_STRING);
+				cell_head.setCellType(CellType.STRING);
 			}
-			
+
 			// 写入正文
 			List<Map<String,Object>> dataList = data.get(sheetNames.get(i));
 			for(int x=0; x<dataList.size(); x++) {
@@ -87,34 +80,34 @@ public class ExcelExportUtils {
 					XSSFCell cell = row.createCell(j);
 					// 单元格样式
 					cell.setCellStyle(style);
-					
+
 					// 单元格数据类型
 					Object tempVal = rowData.get(column.getCode());
-					
+
 					// 格式化单元格数据
 					CellBean cellBean = formatterCell(type, tempVal);
 					if(DataTypeEnum.String.equals(type) || DataTypeEnum.Boolean.equals(type)) {
 						cell.setCellValue(cellBean.getValStr());
-						cell.setCellType(Cell.CELL_TYPE_STRING);
+						cell.setCellType(CellType.STRING);
 					} else if(DataTypeEnum.Double.equals(type) || DataTypeEnum.Numeric.equals(type)) {
 						cell.setCellValue(cellBean.getValDouble());
-						cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-					} 
+						cell.setCellType(CellType.NUMERIC);
+					}
 					else if(DataTypeEnum.Integer.equals(type)) {
 						cell.setCellValue(cellBean.getValInt());
-						cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+						cell.setCellType(CellType.NUMERIC);
 					}
 					else if(DataTypeEnum.DateTime.equals(type) || DataTypeEnum.Date == type || DataTypeEnum.Timestamp == type) {
 						cell.setCellValue(cellBean.getValDate());
 						cell.setCellStyle(style_date);
-						cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+						cell.setCellType(CellType.NUMERIC);
 					}
 				}
 			}
 		}
 		return wb;
 	}
-	
+
 	/**
 	 * 格式化单元格数据
 	 * @param type 数据格式
@@ -128,24 +121,24 @@ public class ExcelExportUtils {
 		if(DataTypeEnum.String.equals(type)) {
 			if(tempVal != null) {
 				cell.setValStr(String.valueOf(tempVal));
-				cell.setCellType(Cell.CELL_TYPE_STRING);
+				cell.setCellType(CellType.STRING);
 			}
 		} else if(DataTypeEnum.Double.equals(type) || DataTypeEnum.Numeric.equals(type)) {
 			try {
 				String numberStr = String.valueOf(tempVal);
 				double val_d = Double.valueOf(numberStr);
 				cell.setValDouble(val_d);
-				cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+				cell.setCellType(CellType.NUMERIC);
 			} catch (Exception e) {
 				log.warn("【格式化单元格数据，数据类型="+type.toString()+"，数据="+tempVal+"，异常信息："+e.getMessage()+"】");
 			}
-		} 
+		}
 		else if(DataTypeEnum.Integer.equals(type)) {
 			try {
 				String numberStr = String.valueOf(tempVal);
 				int val_i = Integer.valueOf(numberStr);
 				cell.setValInt(val_i);
-				cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+				cell.setCellType(CellType.NUMERIC);
 			} catch (Exception e) {
 				log.warn("【格式化单元格数据，数据类型="+type.toString()+"，数据="+tempVal+"，异常信息："+e.getMessage()+"】");
 			}
@@ -156,13 +149,13 @@ public class ExcelExportUtils {
 				val = (boolean) tempVal ? "是" : "否";
 			}
 			cell.setValStr(val);
-			cell.setCellType(Cell.CELL_TYPE_STRING);
+			cell.setCellType(CellType.STRING);
 		}
 		else if(DataTypeEnum.DateTime.equals(type)) {
 			try {
 				Date date = SimpleUtils.getJavaDate(tempVal, SimpleUtils.FORMATDATETIME);
 				cell.setValDate(date);
-				cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+				cell.setCellType(CellType.NUMERIC);
 			} catch(Exception e) {
 				log.warn("【格式化单元格数据，数据类型="+type.toString()+"，数据="+tempVal+"，异常信息："+e.getMessage()+"】");
 			}
@@ -170,7 +163,7 @@ public class ExcelExportUtils {
 			try {
 				Date date = SimpleUtils.getJavaDate(tempVal, SimpleUtils.FORMATDATE);
 				cell.setValDate(date);
-				cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+				cell.setCellType(CellType.NUMERIC);
 			} catch(Exception e) {
 				log.warn("【格式化单元格数据，数据类型="+type.toString()+"，数据="+tempVal+"，异常信息："+e.getMessage()+"】");
 			}
@@ -178,12 +171,12 @@ public class ExcelExportUtils {
 			try {
 				Date date = SimpleUtils.getJavaDate(tempVal, SimpleUtils.FORMATTIMESTAMP);
 				cell.setValDate(date);
-				cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+				cell.setCellType(CellType.NUMERIC);
 			} catch(Exception e) {
 				log.warn("【格式化单元格数据，数据类型="+type.toString()+"，数据="+tempVal+"，异常信息："+e.getMessage()+"】");
 			}
 		}
 		return cell;
 	}
-	
+
 }
