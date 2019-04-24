@@ -2,8 +2,6 @@ package office.read;
 
 import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.metadata.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -58,10 +56,10 @@ public class ReadByEasyExcel {
         classifier(sheet);
     }
 
-    public void classifier(XSSFSheet sheet) {
+    private void classifier(XSSFSheet sheet) {
         int headNum = 0;
         try {
-            File des = new File("H://log//classifier.sql");
+            File des = new File("H://log//bigData//classifier.sql");
             if (!des.exists()) {
                 des.createNewFile();
             }
@@ -79,14 +77,21 @@ public class ReadByEasyExcel {
                 sql += "'"+row.getCell(0).getStringCellValue()+"',"; // id
                 sql += "'"+row.getCell(1).getStringCellValue()+"',"; // name
                 sql += "'"+row.getCell(5).getStringCellValue()+"',"; // dis_icon
-                sql += "'"+row.getCell(2).getStringCellValue()+"',"; // is_abstract
-                sql += "'F','T',";
+                // is_abstract
+                String abs = row.getCell(2).getStringCellValue();
+                if(abs.equalsIgnoreCase("F")) {
+                    sql += "0,";
+                } else {
+                    sql += "1,";
+                }
+                sql += "0,1,";
                 sql += "'"+row.getCell(6).getStringCellValue()+"',"; // owner_pkg
                 String description = row.getCell(8).getStringCellValue();
+                // description
                 if("NULL".equals(description)) {
                     sql += "NULL";
                 } else {
-                    sql += "'"+row.getCell(8).getStringCellValue()+"'"; // description
+                    sql += "'"+row.getCell(8).getStringCellValue()+"'";
                 }
                 sql += ");";
                 writer.write(sql);
