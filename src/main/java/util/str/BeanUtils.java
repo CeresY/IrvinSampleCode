@@ -96,8 +96,8 @@ public class BeanUtils {
     
     /**
 	 * 对象转为字节(序列化)
-	 * @param 对象
-	 * @return 对象的字节数组
+	 * @param object 对象
+	 * @return byte[] bytes 对象的字节数组
 	 */
     public static byte[] objectToByteArray(Object object) throws Exception {
 		if (object == null) {
@@ -119,7 +119,6 @@ public class BeanUtils {
 
 	/**
 	 * 字节转为对象(反序列化)
-	 * @param 对象的字节数组
 	 * @return 对象
 	 */
 	public static Object ByteArrayToObject(byte[] bytes) throws Exception {

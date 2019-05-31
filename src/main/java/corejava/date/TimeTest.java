@@ -2,7 +2,9 @@ package corejava.date;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.junit.Test;
 
@@ -20,8 +22,10 @@ public class TimeTest {
 	
 	@Test
 	public void test2() {
+		Date getMin = new Date();
 		try {
 			Date date = sdf.parse("19700101 00:00:00");
+			getMin = sdf2.parse("2019-05-06 10:04:03");
 			long t = date.getTime();
 			System.out.println(date);
 			System.out.println(t);
@@ -30,6 +34,12 @@ public class TimeTest {
 		}
 		System.out.println(new Date(-28800000L));
 		System.out.println(new Date(-120L));
+
+		GregorianCalendar calendar = new GregorianCalendar();
+		calendar.setTime(getMin);
+		int min = calendar.get(Calendar.MINUTE);
+		System.out.println("***********分钟："+min);
+		System.out.println("***********分钟(余)："+min%3);
 	}
 	
 	@Test
