@@ -76,8 +76,7 @@ public class RedisCache implements Cache {
 	@Override
 	public ValueWrapper get(Object key) {
 		final String keyf = String.valueOf(key);
-        Object object = null;
-        object = redisTemplate.execute(new RedisCallback<Object>() {
+        Object object = object = redisTemplate.execute(new RedisCallback<Object>() {
             public Object doInRedis(RedisConnection connection) throws DataAccessException {
                 byte[] key = keyf.getBytes();
                 byte[] value = connection.get(key);
