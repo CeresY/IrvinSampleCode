@@ -5,7 +5,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * @Description // 监听队列里每个元素N秒，然后自己销毁
+ * @Description // 监听队列里每个元素N秒，然后自己销毁 from：https://cloud.tencent.com/developer/ask/170838
  * @Author yz
  * @Date 2019-6-27
  * @Vesion 1.0
