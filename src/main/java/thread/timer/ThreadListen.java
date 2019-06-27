@@ -18,7 +18,7 @@ public class ThreadListen {
         ArrayList<String> names = new ArrayList<String>();
         names.add("T1"); names.add("T2"); names.add("T3");
         for (String name: names) {
-            Woker a_worker = new Woker(queue);
+            Worker a_worker = new Worker(queue);
             a_worker.setName(name);
             a_worker.start();
         }

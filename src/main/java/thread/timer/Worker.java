@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
  * @Date 2019-6-27
  * @Vesion 1.0
  **/
-public class Woker extends Thread{
+public class Worker extends Thread{
     BlockingQueue<String> q;
 
-    Woker(BlockingQueue<String> q) {
+    Worker(BlockingQueue<String> q) {
         this.q = q;
     }
 
