@@ -1,8 +1,8 @@
 package corejava.base;
 
 public interface DangerousMonster extends Monster {
-	/*@Override
-	public void menace();*/
+
+	void menace();
 	
-	public void destory();
+	void destory();
 }
