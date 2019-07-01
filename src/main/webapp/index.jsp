@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	<%=basePath %><br/>
+
   	<div>
 		<form id="_f1" name="f1" class="mid" method="post">
 			用户名:
@@ -52,6 +52,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<div>
   		<p><%=path%></p>
   		<p><%=basePath%></p>
+		<p><a href="<%=basePath%>jsp/process.jsp"/>进度条</p>
+
   	</div>
   </body>
 </html>
