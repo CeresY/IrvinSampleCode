@@ -20,12 +20,12 @@ public class ServletMain extends HttpServlet{
 	private Logger log = Logger.getLogger("servlet");
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
-		HttpSession session = req.getSession();
-		String username = req.getParameter("username");
-		String pwd = req.getParameter("pwd");
+	@SuppressWarnings("Duplicates")
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		String username = request.getParameter("username");
+		String pwd = request.getParameter("pwd");
 		if((username == null || "".equals(username)) || (pwd == null || "".equals(pwd))) {
 			//throw new IllegalArgumentException();
 		}
@@ -34,23 +34,23 @@ public class ServletMain extends HttpServlet{
 		a.setUsername(username);
 		a.setPwd(pwd);
 		session.setAttribute("account", a);
-		resp.setHeader("Content-Type", "text/html; charset=UTF-8");
-		RequestDispatcher dis = req.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
-		dis.forward(req, resp);
+		response.setHeader("Content-Type", "text/html; charset=UTF-8");
+		RequestDispatcher dis = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+		dis.forward(request, response);
 	}
 
+	@SuppressWarnings("Duplicates")
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		String username = req.getParameter("username");
-		String pwd = req.getParameter("pwd");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String username = request.getParameter("username");
+		String pwd = request.getParameter("pwd");
 		log.info(username + ": " + pwd);
 		Account a = new Account();
 		a.setUsername(username);
 		a.setPwd(pwd);
 		session.setAttribute("account", a);
-		resp.sendRedirect(req.getContextPath()+"/project/show.jsp");
+		response.sendRedirect(request.getContextPath()+"/project/show.jsp");
 	}
 	
 }

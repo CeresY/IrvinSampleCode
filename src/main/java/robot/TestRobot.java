@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 /**
-	最早的时候我是模拟PC端的鼠标点击
+	最早的时候我是模拟PC端的鼠标点击; 这个太不智能
 **/
 public class TestRobot {
 	public static void main(String[] args) {
