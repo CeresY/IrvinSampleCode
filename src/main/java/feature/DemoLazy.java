@@ -1,4 +1,4 @@
-package jdk.feature;
+package feature;
 
 import static java.lang.System.*;
 

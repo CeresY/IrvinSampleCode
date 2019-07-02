@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<link rel="stylesheet" type="text/css" href="css/commons.css">
 	
@@ -53,7 +54,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<p><%=path%></p>
   		<p><%=basePath%></p>
 		<p><a href="<%=basePath%>jsp/process.jsp"/>进度条</p>
-
   	</div>
+
+  	<div>
+		<h1>一个Servlet处理多个请求</h1> <hr>
+		<a href="queryEmp.action">查询员工信息</a> <br/>
+		<a href="addEmp.action">新增员工信息</a> <br/>
+		<a href="deleteEmp.action">删除员工信息</a> <br/>
+		<a href="queryEmpList.action">查询所有员工信息</a>
+	</div>
   </body>
 </html>
