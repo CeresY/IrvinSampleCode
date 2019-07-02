@@ -33,6 +33,11 @@ public class ThreadMain implements Runnable{
 					e.printStackTrace();
 					throw new IllegalArgumentException();
 				}
+				try {
+					Thread.currentThread().wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				System.out.println(Thread.currentThread().getName()+"执行: "+run);
 			} else {
 				Thread.currentThread().interrupt();
