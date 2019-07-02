@@ -30,6 +30,7 @@ public class MultiServlet extends HttpServlet {
         String methodName = url.substring(url.lastIndexOf("/")+1, url.lastIndexOf("."));
         System.out.println("methodName = " + methodName + ", url = " + url);
         Method method = null;
+        //Class clazz = Class.forName(className);// className=com.wu.action.LoginAction 这里的className要完整
         try {
             // 使用反射机制获取在本类中声明了的方法
             method = getClass().getDeclaredMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
