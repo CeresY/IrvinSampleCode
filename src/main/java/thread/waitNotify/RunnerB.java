@@ -22,14 +22,16 @@ public class RunnerB {
                 e.printStackTrace();
             }
         });
-        try {
+
+        /*try {
             //
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         System.out.println("start thread");
         t.start();
+        Thread.yield();
         System.out.println("end main");
     }
 }
