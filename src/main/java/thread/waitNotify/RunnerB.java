@@ -8,7 +8,7 @@ import java.util.Random;
  * @Date 2019-7-2
  * @Vesion 1.0
  **/
-public class RunnerA {
+public class RunnerB {
     @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
         System.out.println("start ...");
@@ -22,14 +22,13 @@ public class RunnerA {
                 e.printStackTrace();
             }
         });
-        t.start();
         try {
-            t.join();
             //
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("start thread");
         t.start();
         System.out.println("end main");
     }
