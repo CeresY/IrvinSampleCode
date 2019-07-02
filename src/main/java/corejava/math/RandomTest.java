@@ -17,6 +17,7 @@ public class RandomTest {
 		int max = 90, min = 65;
 		for(int i=0; i<30; i++) {
 			int r = new Random().nextInt(max-min+1)+min;
+			System.out.printf("r=["+r+"]\t");
 			System.out.println(String.valueOf((char)r));
 		}
 	}
