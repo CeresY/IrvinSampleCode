@@ -36,4 +36,8 @@ public enum Color {
 	}
 
 	public abstract boolean isImpl();
+
+	public static void main(String[] args) {
+		Color.valueOf("");
+	}
 }
