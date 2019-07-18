@@ -13,9 +13,6 @@ import org.junit.Test;
 public class JadaTime {
     @Test
     public void test1() {
-        LocalDate d1 = LocalDate.now();
-        LocalTime now = LocalTime.now();
-        System.out.println(d1.toString());
-        System.out.println("now = " + now.toString("HH:mm:ss"));
+        System.out.println(LocalDate.now().toString() + " " + LocalTime.now().toString("HH:mm:ss"));
     }
 }
