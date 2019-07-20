@@ -2,18 +2,16 @@ package util.str;
 
 
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Map;
-
-import org.apache.commons.beanutils.BeanMap;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /** 
  * 对象转换工具类,包括object,json对象,json字符串转换等
@@ -120,6 +118,8 @@ public class BeanUtils {
 	/**
 	 * 字节转为对象(反序列化)
 	 * @return 对象
+	 * @param bytes 对象的字节数组
+
 	 */
 	public static Object ByteArrayToObject(byte[] bytes) throws Exception {
 		if (bytes == null) {

@@ -1,5 +1,7 @@
 package util.file;
 
+import org.junit.Test;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -48,6 +50,15 @@ public class FileI0Util {
 		//hexToTxt();
 		
 		System.out.println("... ...done");
+	}
+
+	@Test
+	public void bufferreadTest() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("aaaaaaaaaaaaaaa\r\n");
+		sb.append("bbbbbbbbbbbbbbb\r\n");
+		sb.append("bbbbbbbbbbbbbbb\r\n");
+		System.out.println(sb.toString());
 	}
 
 	// 把一个文本文件按照定长格式打印出来
