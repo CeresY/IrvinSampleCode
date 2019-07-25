@@ -1,5 +1,8 @@
 package corejava.genericity;
 
+import corejava.genericity.model.Apple;
+import corejava.genericity.model.Fruit;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

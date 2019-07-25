@@ -1,5 +1,10 @@
 package corejava.genericity;
 
+import corejava.genericity.model.Apple;
+import corejava.genericity.model.Fruit;
+import corejava.genericity.model.ModelT;
+import corejava.genericity.model.Orange;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +17,19 @@ import java.util.List;
 public class GenericityTest {
     public static void main(String[] args) {
         GenericityTest foo = new GenericityTest();
-        foo.test1();
+        foo.test2();
+    }
+
+    public void take(ModelT<?> model) {
+        model.print();
+    }
+    public void test2() {
+        ModelT<Apple> apple = new ModelT<>(new Apple());
+        ModelT<Orange> orange = new ModelT<>(new Orange());
+        ModelT<Fruit> fruit = new ModelT<>(new Fruit());
+        take(apple);
+        take(orange);
+        take(fruit);
     }
 
     public void test1() {
