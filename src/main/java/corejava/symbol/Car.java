@@ -1,0 +1,20 @@
+package corejava.symbol;
+
+/**
+ * @Description //
+ * @Author yz
+ * @Date 2019-8-14
+ * @Vesion 1.0
+ **/
+public class Car extends Maching {
+
+    public Car(String name) {
+
+        super(name);
+    }
+
+    public void createCar() {
+        this.function();
+        this.getDescrible();
+    }
+}

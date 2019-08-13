@@ -17,6 +17,16 @@ import org.junit.Test;
 public class DateTest {
 	private static SimpleDateFormat sdf_time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private static SimpleDateFormat sdf_date = new SimpleDateFormat("yyyy-MM-dd");
+
+	@Test
+	public void test1() throws ParseException, InterruptedException {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		for(int i=0; i<10; i++) {
+			long ts = new Date().getTime();
+			System.out.println(ts / 1000);
+			Thread.sleep(1000);
+		}
+	}
 	
 	/**
 	 * 格式化13位时间戳

@@ -280,5 +280,5 @@ public class DateFormatterUtils {
         long days = time;  
         return (new Formatter()).format("%1$d天%2$02d小时%3$02d分%4$02d秒%5$03d毫秒",  
                 days, hours, mins, seconds, minseconds).toString();  
-    } 
+    }
 }
