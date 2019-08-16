@@ -38,11 +38,6 @@ public class MsgDigestUtil {
     public static void main(String[] args) throws NoSuchAlgorithmException {
         String msg = "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjcxOTE2NTYsImlzcyI6ImJhaXpoaWtlamkiLCJpYXQiOjE1NjQ1OTk2NTZ9.273nLq41iP5eymmMEHqs7CsLTyfGHVroYvRM-MX4owc";
         System.out.println(md5(msg));
-        System.out.println(md5(msg));
-        System.out.println(md5(msg));
-        System.out.println(md5(msg));
-        System.out.println(sha(msg));
-        System.out.println(sha(msg));
         System.out.println(sha(msg));
     }
 
