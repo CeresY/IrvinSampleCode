@@ -8,9 +8,8 @@ package corejava.symbol;
  **/
 public class Car extends Maching {
 
-    public Car(String name) {
-
-        super(name);
+    protected Car(String name, String fun) {
+        super(name, fun);
     }
 
     public void createCar() {
