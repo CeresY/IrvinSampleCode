@@ -1,6 +1,8 @@
 package securityThink;
 
 import io.jsonwebtoken.*;
+import pojo.ErrorCode;
+import pojo.Result;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;

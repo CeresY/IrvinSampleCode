@@ -26,7 +26,7 @@ public class StrTest {
 		System.out.println(sb.toString());
 	}
 
-	@org.junit.jupiter.api.Test
+	@Test
 	public void aplist2() {
 		String str = "a中b文c123汉字";
 		char exp = 0;

@@ -1,7 +1,5 @@
 package office.read;
 
-import com.alibaba.excel.EasyExcelFactory;
-import com.alibaba.excel.metadata.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -20,20 +18,12 @@ import java.util.List;
 public class ReadByEasyExcel {
     private static String  path = "H:\\log\\2.xlsx";
     public static void main(String[] args) {
-        try {
-            /*InputStream inputStream = getResourcesFileInputStream("1.xlsx");
-            //FileInputStream inputStream = new FileInputStream(new File(path));
-            List<Object> data = EasyExcelFactory.read(inputStream, new Sheet(1, 0));
-            inputStream.close();
-            print(data);*/
+        /*InputStream inputStream = getResourcesFileInputStream("1.xlsx");
+        //FileInputStream inputStream = new FileInputStream(new File(path));
+        List<Object> data = EasyExcelFactory.read(inputStream, new Sheet(1, 0));
+        inputStream.close();
+        print(data);*/
 
-            InputStream inputStream = getResourcesFileInputStream("2007.xlsx");
-            List<Object> data = EasyExcelFactory.read(inputStream, new Sheet(1, 0));
-            inputStream.close();
-            print(data);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static InputStream getResourcesFileInputStream(String fileName) {

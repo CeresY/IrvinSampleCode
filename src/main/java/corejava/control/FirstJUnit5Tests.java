@@ -1,13 +1,13 @@
 package corejava.control;
 
 
-import org.junit.jupiter.api.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.jupiter.api.*;
+//
+//import static org.junit.jupiter.api.Assertions.*;
 
 public class FirstJUnit5Tests {
 
-    @BeforeEach
+    /*@BeforeEach
     @DisplayName("每条用例开始时执行")
     void start(){
 
@@ -55,5 +55,5 @@ public class FirstJUnit5Tests {
     @DisplayName("依赖注入2")
     public void testReporter(final TestReporter testReporter) {
         testReporter.publishEntry("name", "Alex");
-    }
+    }*/
 }
