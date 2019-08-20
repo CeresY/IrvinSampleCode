@@ -19,6 +19,62 @@ public class DateTest {
 	private static SimpleDateFormat sdf_date = new SimpleDateFormat("yyyy-MM-dd");
 
 	@Test
+	public void testAddSecond() {
+		System.out.println("=== second ===");
+		int len = 32;
+		Calendar c1 = Calendar.getInstance();
+		c1.add(Calendar.SECOND, len);
+		System.out.println(sdf_time.format(c1.getTime()));
+	}
+
+	@Test
+	public void testAddHour() {
+		System.out.println("=== hour ===");
+		int len = 25;
+		Calendar c1 = Calendar.getInstance();
+		c1.add(Calendar.HOUR, len);
+		System.out.println(sdf_time.format(c1.getTime()));
+
+		Calendar c2 = Calendar.getInstance();
+		c2.add(Calendar.HOUR_OF_DAY, len);
+		System.out.println(sdf_time.format(c2.getTime()));
+	}
+
+	@Test
+	public void testAddDay() {
+		System.out.println("=== day ===");
+		int len = 365;
+		Calendar c5 = Calendar.getInstance();
+		c5.add(Calendar.DATE, len);
+		System.out.println(sdf_time.format(c5.getTime()));
+
+		Calendar c1 = Calendar.getInstance();
+		c1.add(Calendar.DAY_OF_YEAR, len);
+		System.out.println(sdf_time.format(c1.getTime()));
+
+		Calendar c2 = Calendar.getInstance();
+		c2.add(Calendar.DAY_OF_MONTH, len);
+		System.out.println(sdf_time.format(c2.getTime()));
+
+		Calendar c3 = Calendar.getInstance();
+		c3.add(Calendar.DAY_OF_WEEK, len);
+		System.out.println(sdf_time.format(c3.getTime()));
+
+		Calendar c4 = Calendar.getInstance();
+		c4.add(Calendar.DAY_OF_WEEK_IN_MONTH, len);
+		System.out.println(sdf_time.format(c4.getTime()));
+	}
+
+	@Test
+	public void testAddMonth() {
+		System.out.println("=== month ===");
+		int len = 13;
+		Calendar c4 = Calendar.getInstance();
+		c4.add(Calendar.MONTH, len);
+		System.out.println(sdf_time.format(c4.getTime()));
+	}
+
+	@Test
 	public void test1() throws ParseException, InterruptedException {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		for(int i=0; i<10; i++) {

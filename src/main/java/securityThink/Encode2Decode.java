@@ -1,9 +1,10 @@
-package util;
+package securityThink;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.text.StringEscapeUtils;
+import util.Exceptions;
 
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
@@ -266,8 +267,8 @@ public class Encode2Decode {
     	try {   
             KeyGenerator kgen = KeyGenerator.getInstance("AES"); 
             //防止linux下 随机生成key
-            SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");   
-            secureRandom.setSeed(password.getBytes());   
+            SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
+            secureRandom.setSeed(password.getBytes());
             kgen.init(128, secureRandom);
             SecretKey secretKey = kgen.generateKey();   
             byte[] enCodeFormat = secretKey.getEncoded();   

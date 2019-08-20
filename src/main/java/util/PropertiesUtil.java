@@ -1,5 +1,7 @@
 package util;
 
+import securityThink.Encode2Decode;
+
 import java.util.Properties;
 
 /** 解析properties工具类

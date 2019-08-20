@@ -11,10 +11,10 @@ public class Array1 {
 	static char[] src = source.toCharArray();
 	
 	/**
-	 * Éú³Élength¸ö×ÖÄ¸µÄËæ»ú×Ö·û´®¡£<br>
-	 * <Strong>Ê¾Àı£º</Strong><br>
+	 * ç”Ÿæˆlengthä¸ªå­—æ¯çš„éšæœºå­—ç¬¦ä¸²ã€‚<br>
+	 * <Strong>ç¤ºä¾‹ï¼š</Strong><br>
 	 * length=2;String = xy; length=4;String = xyxy;
-	 * @param length ×Ö·û´®¸öÊı
+	 * @param length å­—ç¬¦ä¸²ä¸ªæ•°
 	 * @return
 	 */
 	public static String randString(int length) {
@@ -65,13 +65,13 @@ public class Array1 {
 		print(b);
 //		Arrays.sort(b);
 //		print(b);
-		//ËÑË÷byteÊı×éµÄÖ¸¶¨Î»ÖÃ
-		//System.out.println("//------ËÑË÷byte[" + searchLoc + "]------");
+		//æœç´¢byteæ•°ç»„çš„æŒ‡å®šä½ç½®
+		//System.out.println("//------æœç´¢byte[" + searchLoc + "]------");
 		loc = Arrays.binarySearch(b, b[searchLoc]);
 		System.out.println("Location of " + b[searchLoc] + " is " + loc);
 		//
 		AlphaComp ac = new AlphaComp();
-		System.out.println("//------Éú³ÉËæ»ú×Ö·ûString[]------");
+		System.out.println("//------ç”Ÿæˆéšæœºå­—ç¬¦String[]------");
 		String[] s = randString(4, 10);
 		print(s);
 		Arrays.sort(s, ac);
