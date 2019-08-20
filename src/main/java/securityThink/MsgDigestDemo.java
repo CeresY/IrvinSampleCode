@@ -25,5 +25,11 @@ public class MsgDigestDemo{
         System.out.println("原文: " + msg);
         System.out.println("MD5摘要: " + Base64.encodeBase64URLSafeString(md5Encoded));
         System.out.println("SHA摘要: " + Base64.encodeBase64URLSafeString(shaEncoded));
+
+        String str = "us29DFU677^&$9QD";
+        System.out.println("原文："+str);
+        String str64 = Base64.encodeBase64String(str.getBytes());
+        System.out.println("BASE64："+str64);
+        System.out.println("逆BASE64："+new String(Base64.decodeBase64(str64.getBytes()), "UTF-8"));
     }
 }
