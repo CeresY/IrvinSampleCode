@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    #    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.13.29.88:13308/znsb?allowMultiQueries=true&useUnicode=true&useSSL=false&characterEncoding=UTF-8
+    username: root
+    password: config.file=classpath:druid.properties
+    # 使用druid数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 初始化连接池大小
+      initial-size: 8
+      # 最小连接数
+      min-idle: 1
+      # 最大连接数
+      max-active: 20
+      # 获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-timeMillis: 300000
+      validation-query: select 'x' FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,config
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      #      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+      filter:
+        config:
+          enabled: true
+      connection-properties: config.file=classpath:druid.properties
+
+server:
+  port: 8888
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-header-size: 8192
+  servlet:
+    context-path: /api
+  ssl:
+    key-store: classpath:cdbaizhi.club.jks
+    key-store-password: 6582h4cz91k07c1
+    key-store-type: JKS
+#    key-alias: 6582h4cz91k07c1

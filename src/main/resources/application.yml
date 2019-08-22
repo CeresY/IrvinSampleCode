@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: prod
+#  cache:
+#    type: caffeine
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    serialization: {FAIL_ON_EMPTY_BEANS: false, INDENT_OUTPUT: true}
+    default-property-inclusion: non_empty
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  config-location: classpath:mybatis-config.xml
+  type-aliases-package: com.bzcloud.api.entity
+
+# 打印sql
+logging:
+  level:
+    com.bzcloud.api.mapper : debug
