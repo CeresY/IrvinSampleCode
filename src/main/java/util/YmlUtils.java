@@ -61,8 +61,8 @@ public class YmlUtils {
     }
 
     public static Map<String, String> getYmlActive() {
-        String file = "application-"+getValueDefalut("spring.profiles.active")+".yml";
         if(MapUtils.isEmpty(resultActive)) {
+            String file = "application-"+getValueDefalut("spring.profiles.active")+".yml";
             resultActive = getYmlByFileName(file);
         }
         return resultActive;
