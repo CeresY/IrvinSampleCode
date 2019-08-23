@@ -15,7 +15,7 @@ import java.util.Map;
  * yml文件属性读取类
  */
 @Slf4j
-public class YmlUtils {
+public class YmlCacheUtils {
 
     private static String default_file = "application.yml";
 
