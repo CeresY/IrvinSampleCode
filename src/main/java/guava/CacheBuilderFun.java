@@ -3,7 +3,6 @@ package guava;
 import avro.shaded.com.google.common.cache.Cache;
 import avro.shaded.com.google.common.cache.CacheBuilder;
 import com.google.common.base.Strings;
-import util.CodeCache;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,7 +19,8 @@ public class CacheBuilderFun {
 
     public static void main(String[] args) {
         CacheBuilderFun foo = new CacheBuilderFun();
-        foo.interruptSleep();
+        foo.cacheBuilderFun();
+        // foo.interruptSleep();
     }
 
     public void cacheBuilderFun() {
@@ -74,5 +74,7 @@ public class CacheBuilderFun {
 //                t1.interrupt();
             }*/
         }
+
+        System.out.println("... finished");
     }
 }
