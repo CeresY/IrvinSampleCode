@@ -1,6 +1,6 @@
 package util;
 
-import securityThink.Encode2Decode;
+import security.Encode2Decode;
 
 import java.util.Properties;
 

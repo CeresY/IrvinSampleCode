@@ -1,4 +1,4 @@
-package securityThink;
+package security;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;

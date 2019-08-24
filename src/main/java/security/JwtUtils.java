@@ -1,4 +1,4 @@
-package securityThink;
+package security;
 
 import io.jsonwebtoken.*;
 import pojo.ErrorCode;

@@ -1,4 +1,4 @@
-package securityThink;
+package security;
 
 import java.security.MessageDigest;
 
