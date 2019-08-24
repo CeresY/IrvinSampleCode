@@ -31,6 +31,26 @@ public class Encode2Decode {
 	private static final String DEFAULT_URL_ENCODING = "UTF-8";
 	private static final char[] BASE62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
 
+
+    /** AES demo */
+    public static void main(String[] args) throws Exception {
+        /*byte[] a1 = encryptAES("hello abcdefggsdfasdfasdf","abcdefgabcdefg12");
+        String b1 = encodeHex(a1);
+        byte[] b2 = decodeHex(b1);
+        System.out.println(b1.toString());
+        byte[] a2 = decryptAES(b2,"abcdefgabcdefg12");
+        System.out.println(new String(a2,"utf-8"));*/
+
+        String str = "解密jxmi123";
+        System.out.println("原文: "+str);
+        String b1 = encodeBase64(str.getBytes());
+        System.out.println("\r\nencodeBase64: "+b1);
+        String b2 = encodeUrlSafeBase64(str.getBytes());
+        System.out.println("\r\nencodeUrlSafeBase64: "+b2);
+        System.out.println("\r\nencodeBase64解密: " + new String(decodeBase64(b1)));
+        System.out.println("\r\nencodeUrlSafeBase64解密: " + new String(decodeBase64(b2)));
+    }
+
 	/**
 	 * Hex编码.
 	 */
@@ -290,14 +310,4 @@ public class Encode2Decode {
         }   
         return null; 
     }
-    
-    /** AES demo */
-    public static void main(String[] args) throws Exception {
-    	byte[] a1 = encryptAES("hello abcdefggsdfasdfasdf","abcdefgabcdefg12");
-    	String b1 = encodeHex(a1);
-    	byte[] b2 = decodeHex(b1);
-		System.out.println(b1.toString());
-		byte[] a2 = decryptAES(b2,"abcdefgabcdefg12");
-		System.out.println(new String(a2,"utf-8"));
-	}
 }
