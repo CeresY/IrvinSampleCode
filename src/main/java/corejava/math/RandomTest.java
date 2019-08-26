@@ -9,6 +9,17 @@ import java.util.Set;
 import org.junit.Test;
 
 public class RandomTest {
+
+	@Test
+	public void nextInt() {
+		Random random2 = new Random(123);
+		for (int i = 0; i < 10; i++) {
+			int r = new Random(12).nextInt();
+			int r2 = random2.nextInt(20);
+			System.out.println("\r\n"+r+"\t"+r2);
+		}
+	}
+
 	@Test
 	public void test1() {
 		int[] specialChar = {33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,58,59,60,61,62,63,64,91,92,93,94,95,96,123,124,125,126};
