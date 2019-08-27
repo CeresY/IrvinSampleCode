@@ -3,6 +3,18 @@ package corejava.string;
 import java.io.UnsupportedEncodingException;
 import org.junit.Test;
 public class StrTest {
+
+	@Test
+	public void testSetM() {
+		String str = "OK";
+		testSet(str);
+		System.out.println(str);
+	}
+
+	public void testSet(String str) {
+		System.out.println("h");
+		str = "h";
+	}
 	
 	/**
 	 * 截取汉字

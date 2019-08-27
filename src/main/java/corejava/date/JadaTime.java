@@ -1,14 +1,12 @@
 package corejava.date;
 
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalTime;
+import org.joda.time.*;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -61,12 +59,72 @@ public class JadaTime {
 
     @Test
     public void testLocalDate() {
-        System.out.println(LocalDate.now().toString() + " " + LocalTime.now().toString("HH:mm:ss"));
+        LocalDate day = LocalDate.now().plusDays(5);
+        int dayIndx = DateTimeConstants.SUNDAY;
+        System.out.println(day.toString() + "\t周几： " + day.getDayOfWeek());
+        // System.out.println(LocalDate.now().toString("yyyyMMdd"));
+        // System.out.println(LocalDate.now().toString() + " " + LocalTime.now().toString("HH:mm:ss"));
 
         LocalDate start = new LocalDate();
         LocalDate end = new LocalDate().minusDays(1);
         System.out.println("day1: " + Days.daysBetween(start, end).getDays());
     }
 
+    @Test
+    public void testDatetime2() {
+        DateTime dt = DateTime.now().plusDays(1);
+        System.out.println("withHourOfDay: " + dt.withHourOfDay(1).toString(formatter));
+        System.out.println("P: " + dt.withMillisOfDay(0).toString(formatter));
+
+        System.out.println("\r\n");
+        DateTime start = DateTime.now().plusDays(1).withMillisOfDay(0);
+        DateTime end = DateTime.now().plusDays(2).withMillisOfDay(0);
+
+        String str = "2019-08-27 13:12:59".substring(11,16);
+        System.out.println("["+str+"]");
+
+        DateTime open = DateTime.parse("2019-08-27 13:12:59", formatter);
+        System.out.println(start.toString(formatter)+"\t开始:" + open.compareTo(start));
+        System.out.println(end.toString(formatter)+"\t结束:" + open.compareTo(end));
+    }
+
+    @Test
+    public void testLocaTime() {
+        LocalTime time = LocalTime.now();
+        String hhmm = time.toString("HH:mm");
+        System.out.println("HH:mm=[" + hhmm+"]");
+
+        System.out.println("\r\nvalue0=["+time.getValue(0)+"]");
+        System.out.println("value1=["+time.getValue(1)+"]");
+        System.out.println("value2=["+time.getValue(2)+"]");
+        System.out.println("value3=["+time.getValue(3)+"]");
+    }
+
+    @Test
+    public void temp() {
+        /*DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
+        String openTime = "2018-08-27 17:12:20";
+        openTime = openTime.substring(0,16);
+        System.out.println("len="+openTime.length()+": "+openTime);
+        DateTime open = DateTime.parse(openTime, formatter);*/
+
+        /*DateTime start = DateTime.now().plusDays(1).withMillisOfDay(0);
+        DateTime end = DateTime.now().plusDays(2).withMillisOfDay(0);
+
+        DateTime now = DateTime.now().plusDays(1);
+        System.out.println("now.compareTo(start): " + now.compareTo(start));
+        System.out.println("now.compareTo(end): " + now.compareTo(end));
+
+        System.out.println("start: " + start.toString(formatter));
+        System.out.println("end: " + end.toString(formatter));
+        System.out.println("now: " + now.toString(formatter));*/
+        long open = 1535447540000L;
+        long star = 1566921600000L;
+        Date openD = new Date(open);
+        Date starD = new Date(star);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println("openD: "+sdf.format(openD));
+        System.out.println("startD: "+sdf.format(starD));
+    }
 
 }
