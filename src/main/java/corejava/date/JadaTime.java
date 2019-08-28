@@ -9,6 +9,8 @@ import org.junit.Test;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @Description // https://blog.csdn.net/psh18513234633/article/details/79408096
@@ -18,26 +20,50 @@ import java.util.Date;
  **/
 public class JadaTime {
     static DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+    static DateTimeFormatter hm = DateTimeFormat.forPattern("HH:mm");
 
     @Test
     public void testDateTime() {
-        System.out.println(LocalDateTime.now());
 
-        DateTime dt = new DateTime();
-        System.out.println("dt-property-1: " + dt.monthOfYear().getAsText());
-        System.out.println("dt-property-2: " + dt.monthOfYear().withMaximumValue());
-        System.out.println("dt-property-3: " + dt.monthOfYear().roundCeilingCopy());
-        System.out.println(dt.toString());
+        Set<String> keys = new HashSet<>();
+        keys.add("a");
+        keys.add("b");
+        keys.add("c");
+        String[] a = new String[keys.size()];
+        a = keys.toArray(a);
+        for(String s : a) {
+            System.out.println(": "+ s);
+        }
+
+        System.out.println();
+        if(false && 1>2) {
+            System.out.println("false,false");
+        } else {
+            System.out.println("ok");
+        }
+
+        System.out.println(LocalDateTime.now()+"\n");
+
+        DateTime dt = DateTime.now();
+        System.out.println("property-1: " + dt.monthOfYear().getAsText());
+        System.out.println("property-2: " + dt.monthOfYear().withMaximumValue());
+        System.out.println("property-3: " + dt.monthOfYear().roundCeilingCopy());
+        System.out.println("property-3: " + dt.secondOfMinute().withMinimumValue()+"\n");
+
+        System.out.println("dt.toString: " + dt.toString()+"\n");
+
+        DateTime dt2 = DateTime.parse("2016-05-30 23:04:59", formatter);
+        System.out.println("parse: " + dt2.toString(formatter));
+        System.out.println("parse-Hm: " + dt2.toString(hm)+"\n");
 
         String now3 = DateTime.now().toString(formatter);
-        System.out.println("now3: "+now3);
+        System.out.println("now3: "+now3+"\n");
 
         Date d1 = DateTime.now().toDate();
         System.out.println("d1: "+d1);
-
         System.out.println("dt2: " + DateTime.now().withDayOfMonth(3).toString(formatter));
         System.out.println("dt3: " + DateTime.now().withHourOfDay(4).toString(formatter));
-        System.out.println("dt4: " + DateTime.now().withTimeAtStartOfDay().toString(formatter));
+        System.out.println("dt4: " + DateTime.now().withTimeAtStartOfDay().toString(formatter)+"\n");
 
         // 下面的代码将计算五年前的第二个月的最后一天
         DateTime now = DateTime.now();
@@ -47,9 +73,8 @@ public class JadaTime {
                 .dayOfMonth()      // get dayOfMonth property
                 .withMaximumValue();// the last day of the month
         System.out.println("五年前的第二个月的最后一天: " + then.toString(formatter));
-        System.out.println("五年前的第二个月的最后一天: " + then.toString("yyyy-MM-dd HH:mm:ss"));
+        System.out.println("五年前的第二个月的最后一天: " + then.toString("yyyy-MM-dd HH:mm:ss")+"\n");
 
-        System.out.println("");
         DateTime dateTime = DateTime.now();
         System.out.println("Format1: " + dateTime.toString(ISODateTimeFormat.basicDateTime()));
         System.out.println("Format2: " + dateTime.toString(ISODateTimeFormat.basicDateTimeNoMillis()));
@@ -118,13 +143,14 @@ public class JadaTime {
         System.out.println("start: " + start.toString(formatter));
         System.out.println("end: " + end.toString(formatter));
         System.out.println("now: " + now.toString(formatter));*/
-        long open = 1535447540000L;
+
+        /*long open = 1535447540000L;
         long star = 1566921600000L;
         Date openD = new Date(open);
         Date starD = new Date(star);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("openD: "+sdf.format(openD));
-        System.out.println("startD: "+sdf.format(starD));
+        System.out.println("startD: "+sdf.format(starD));*/
     }
 
 }
