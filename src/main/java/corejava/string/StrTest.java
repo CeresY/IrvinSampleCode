@@ -91,8 +91,9 @@ public class StrTest {
 	
 	@Test
 	public void sub() {
-		String s = "0123456";
-		System.out.println(s.substring(0, 4));
+		Integer.parseInt("3.4");
+		String s = "2019-08-28 19:39:22";
+		System.out.println(s.substring(0, 16));
 		System.out.println(s.substring(s.length()-3));
 	}
 	

@@ -20,7 +20,10 @@ import java.util.Set;
  **/
 public class JadaTime {
     static DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+    static DateTimeFormatter ymdhm = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
+    static DateTimeFormatter ymd = DateTimeFormat.forPattern("yyyy-MM-dd");
     static DateTimeFormatter hm = DateTimeFormat.forPattern("HH:mm");
+    static DateTimeFormatter hms = DateTimeFormat.forPattern("HH:mm:ss");
 
     @Test
     public void testDateTime() {
@@ -151,6 +154,26 @@ public class JadaTime {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("openD: "+sdf.format(openD));
         System.out.println("startD: "+sdf.format(starD));*/
+
+        // DateTime dt = DateTime.now();
+        // System.out.println(dt.toString(hm));
+
+        LocalDate d1 = LocalDate.now();
+        System.out.println("\nLocalDate: " + d1.toString(ymd));
+
+        DateTime star =d1.toDateTimeAtStartOfDay();
+        System.out.println("\nStartOfDay: " + star.toString(formatter));
+
+        DateTime current = d1.toDateTimeAtCurrentTime();
+        System.out.println("\nCurrentTime: " + current.toString(formatter));
+
+        LocalTime t1 = LocalTime.fromMillisOfDay(0);
+        System.out.println("\nMillisOfDay: " + t1.toString(hms));
+
+        DateTime dt3 = DateTime.parse("2019-09-30 23:20:59", formatter);
+        System.out.println("\n" + dt3.toString());
+
+        System.out.println("\nwithMinimumValue: "+DateTime.now().secondOfMinute().withMinimumValue().toString(formatter));
     }
 
 }
