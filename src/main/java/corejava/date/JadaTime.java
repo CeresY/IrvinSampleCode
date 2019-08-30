@@ -158,6 +158,11 @@ public class JadaTime {
         // DateTime dt = DateTime.now();
         // System.out.println(dt.toString(hm));
 
+        System.out.println("Date->Datetime: " +  new DateTime(new Date()).toString(formatter));
+
+        DateTimeFormatter ymdhm = DateTimeFormat.forPattern("yyyyMMddHH:mm");
+        System.out.println("\nyyyyMMddHH:mm: " + DateTime.now().toString(ymdhm));
+
         LocalDate d1 = LocalDate.now();
         System.out.println("\nLocalDate: " + d1.toString(ymd));
 
@@ -174,6 +179,16 @@ public class JadaTime {
         System.out.println("\n" + dt3.toString());
 
         System.out.println("\nwithMinimumValue: "+DateTime.now().secondOfMinute().withMinimumValue().toString(formatter));
+    }
+
+    @Test
+    public void checkTokenTime() {
+        Long[] longs = {1567501408L, 1567155808L};
+        for(int i=0; i<longs.length; i++) {
+            DateTime to = new DateTime(longs[i]*1000);
+            System.out.println("Long["+i+"]: " +  to.toString(formatter));
+        }
+
     }
 
 }

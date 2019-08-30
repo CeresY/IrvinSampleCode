@@ -4,9 +4,13 @@ import org.junit.Test;
 
 
 public class EnumTest {
+
+	public static void main(String[] args) {
+		System.out.println(OPER.ADD.toString());
+	}
 	
 	public enum OPER {
-		ADD("????"), EDIT("???"),DELETE("???"),SAVE("????"),USE("???");
+		ADD("新增"), EDIT("修改"),DELETE("???"),SAVE("????"),USE("???");
 		private String param;
 		private OPER(String param) {
 			this.param = param;
@@ -113,25 +117,5 @@ public class EnumTest {
 		
 		public abstract double eval(double x, double y);
 	}*/
-	
-	public static void main(String[] args) {
-//		System.out.println(Gender.MALE.getName());
-		
-		/*Gender g = Enum.valueOf(Gender.class, "MALE");
-		g.name = "��";
-		System.out.println(g.name);*/
-		
-//		System.out.println(Enum.valueOf(Gender.class, "MALE"));
-		
-//		System.out.println(Gender.FEMALE);
-		
-//		System.out.println(GenderImpl.FEMALE.getName());
-//		GenderImpl.FEMALE.info();
-		System.out.println(GenderImpl.FEMALE);
-		System.out.println(GenderImpl.FEMALE.getName());
-		System.out.println(1111111);
-		
-//		System.out.println(Gender.MIUS.eval(1, 9));
-	}
 
 }

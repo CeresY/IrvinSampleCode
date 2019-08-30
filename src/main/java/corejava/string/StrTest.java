@@ -5,6 +5,14 @@ import org.junit.Test;
 public class StrTest {
 
 	@Test
+	public void test4() {
+		String cut = "https://cdbaizhi.club/bzwechat/wechat/duerosLogin.html?";
+		String redirect_uri = "https://cdbaizhi.club/bzwechat/wechat/duerosLogin.html?client_id=bzkjar8nmsv0nlz&response_type=code&redirect_uri=https://xiaodu.baidu.com/saiya/auth/822f6652b7f6b0746922dd961eec13b3&state=debug&dueros_uid=12cd66ccb436deefb58470f9a72293f2&scope=read";
+		String responseURL = redirect_uri.substring(cut.length(), redirect_uri.length());
+		System.out.println(responseURL);
+	}
+
+	@Test
 	public void testSetM() {
 		String str = "OK";
 		testSet(str);
