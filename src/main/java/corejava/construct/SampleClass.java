@@ -12,6 +12,7 @@ public class SampleClass {
     SampleClass(String s) {
         this.s = s;
         System.out.println(s);
+        System.out.println("(2) SampleClass有参构造函数被调用");
     }
 
     SampleClass() {
